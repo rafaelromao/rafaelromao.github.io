@@ -72,7 +72,7 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: cadetblue;
+  background-color: #BD5D38;
 }
 
 .dev-icons {
@@ -80,7 +80,7 @@ p.lead {
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: cadetblue;
+  color: #BD5D38;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
@@ -90,7 +90,7 @@ p.lead {
 }
 
 #sideNav .navbar-toggler:focus {
-  outline-color: aliceblue;
+  outline-color: #d48a6e;
 }
 
 @media (min-width: 992px) {
@@ -168,9 +168,9 @@ section.resume-section .resume-item .resume-date {
 }
 
 a {
-  color: cadetblue;
+  color: #343a40;
 }
 
 a:hover, a:focus, a:active {
-  color: cornflowerblue;
+  color: #495057;
 }
