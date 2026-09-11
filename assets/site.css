@@ -11,7 +11,9 @@
   --paper-3: oklch(0.925 0.012 85);
   --ink: oklch(0.24 0.012 60);
   --ink-2: oklch(0.42 0.012 60);
-  --ink-3: oklch(0.54 0.010 60);
+  /* Clears AA on --paper, --paper-2 and --paper-3: the rail and the code
+     blocks sit on the darker two, where the page ground alone is not the test. */
+  --ink-3: oklch(0.51 0.010 60);
   --rule: oklch(0.86 0.010 80);
   --accent: oklch(0.50 0.16 32);
   --accent-ink: oklch(0.42 0.15 32);
@@ -28,6 +30,7 @@
   --content: 62rem;
   --gutter: 8.5rem;
   --pad: 1.25rem;
+  --rail: 16.5rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 420ms;
 
@@ -41,7 +44,7 @@
     --paper-3: #24283b;
     --ink: #c0caf5;
     --ink-2: #a9b1d6;
-    --ink-3: #7f87b0;
+    --ink-3: #868eb8;
     --rule: #2f3549;
     --rule-strong: #3d4460;
     --accent: #7aa2f7;
@@ -57,7 +60,7 @@
   --paper-3: #24283b;
   --ink: #c0caf5;
   --ink-2: #a9b1d6;
-  --ink-3: #7f87b0;
+  --ink-3: #868eb8;
   --rule: #2f3549;
   --rule-strong: #3d4460;
   --accent: #7aa2f7;
@@ -72,6 +75,12 @@
 /* ---------- base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+/* Scale the whole design up once there is a sidebar and a desk-sized screen.
+   Measure and spacing are in rem too, so characters per line stay put: this is
+   a zoom, not a reflow. Media queries resolve rem against the initial 16px, so
+   the breakpoint itself does not move. */
+@media (min-width: 64rem) { html { font-size: 112.5%; } }
+@media (min-width: 100rem) { html { font-size: 118.75%; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -132,7 +141,80 @@ h1, h2, h3 { font-weight: 600; letter-spacing: -0.018em; }
   .masthead-title { grid-row: 1; grid-column: 1; }
   .theme-btn { grid-row: 1; grid-column: 2; justify-self: end; }
   .masthead-nav { grid-row: 2; grid-column: 1 / -1; gap: 0.95rem; }
+}
+/* Secondary links only fit once the nav is a vertical rail. */
+@media (max-width: 63.99rem) {
   .masthead-nav .opt { display: none; }
+}
+
+/* Rail-only furniture: hidden until the masthead becomes a sidebar. The nav
+   wrapper is transparent to layout until then, so the bar keeps its own rules. */
+.rail-portrait, .rail-role, .rail-foot, .chapters-nav { display: none; }
+.rail-scroll { display: contents; }
+
+/* ---------- masthead as a fixed sidebar ----------
+   Same markup as the top bar, relaid out. Worth it on a page this tall:
+   navigation stays reachable without scrolling back up. */
+@media (min-width: 64rem) {
+  body { padding-left: var(--rail); }
+  .masthead {
+    position: fixed; top: 0; left: 0; bottom: 0; width: var(--rail);
+    /* Grid, not flex: the identity and the controls are pinned, and only the
+       middle band scrolls. A plain scrolling column pushes the theme toggle off
+       the bottom of a long chapter index, where it cannot be clicked. */
+    display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto;
+    align-items: stretch; gap: 1.4rem; padding: 2.25rem 1.6rem 1.75rem;
+    background: var(--paper-2); backdrop-filter: none;
+    border-right: 1px solid var(--rule); border-bottom: 0;
+    overflow: hidden;
+  }
+  .rail-scroll {
+    display: flex; flex-direction: column; gap: 1.4rem;
+    min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  }
+  .masthead-title { margin: 0; display: block; }
+  .rail-portrait {
+    display: block; width: 7rem; height: 7rem; border-radius: 50%;
+    object-fit: cover; margin: 0 0 1.1rem; border: 1px solid var(--rule);
+  }
+  .rail-name { display: block; font-size: 1.05rem; line-height: 1.25; }
+  .rail-role {
+    display: block; font-size: 0.76rem; font-weight: 400; line-height: 1.4;
+    color: var(--ink-3); margin-top: 0.2rem;
+  }
+  .masthead-nav {
+    flex-direction: column; align-items: stretch; gap: 0; font-size: 0.88rem;
+  }
+  .masthead-nav a { padding: 0.38rem 0; }
+  .masthead-nav .opt { display: block; }
+
+  .chapters-nav {
+    display: flex; flex-direction: column; gap: 0; font-size: 0.82rem;
+    padding-top: 1.3rem; border-top: 1px solid var(--rule);
+  }
+  .chapters-nav a {
+    color: var(--ink-2); padding: 0.3rem 0;
+    display: flex; gap: 0.6rem; align-items: baseline;
+  }
+  .chapters-nav a:hover { color: var(--accent); }
+  .chapters-nav .y {
+    color: var(--ink-3); font-variant-numeric: tabular-nums;
+    font-size: 0.72rem; flex: none; width: 2.2rem;
+  }
+
+  /* Scrollspy. Colour and weight only: a coloured side stripe here would be
+     the same anti-pattern the rest of the page avoids. */
+  .masthead-nav a.here, .chapters-nav a.here { color: var(--accent); font-weight: 600; }
+  .chapters-nav a.here .y { color: var(--accent-ink); }
+
+  .rail-foot { display: block; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+  .rail-social {
+    list-style: none; margin: 0 0 1rem; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; font-size: 0.78rem;
+  }
+  .rail-social a { color: var(--ink-3); }
+  .rail-social a:hover { color: var(--accent); }
+  .theme-btn { align-self: flex-start; margin: 0; }
 }
 
 .theme-btn {
@@ -189,11 +271,9 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 }
 
 /* ---------- hero ---------- */
+/* The portrait lives in the rail, so the hero is a single text column. */
 .hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 4vw, 3rem); }
-.hero-grid { display: grid; gap: 2rem; align-items: start; }
-@media (min-width: 52rem) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr) 12.5rem; gap: 3.5rem; }
-}
+.hero-grid { display: block; }
 
 .role-line {
   font-family: var(--font-ui); font-size: 0.82rem; font-weight: 600;

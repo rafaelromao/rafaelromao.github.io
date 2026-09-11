@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The long version — Rafael Romão</title>
-<meta name="description" content="Twenty-eight years of writing software, told as twelve chapters: a borrowed Delphi book, the yellow pages, a Task class three years before the Task Parallel Library, and a message bus that had a name before I knew it.">
+<meta name="description" content="Twenty-eight years of writing software, told as sixteen chapters: a borrowed Delphi book, the yellow pages, a Task class three years before the Task Parallel Library, and a message bus that had a name before I knew it.">
 <meta name="author" content="Rafael Romão">
 <link rel="canonical" href="https://rafaelromao.github.io/story/">
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="The long version — Rafael Romão">
-<meta property="og:description" content="Twenty-eight years of writing software, told as twelve chapters.">
+<meta property="og:description" content="Twenty-eight years of writing software, told as sixteen chapters.">
 <meta property="og:url" content="https://rafaelromao.github.io/story/">
 <meta property="og:image" content="https://rafaelromao.github.io/img/rafael.jpg">
 <meta name="twitter:card" content="summary">
@@ -36,14 +36,44 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
-  <a class="masthead-title" href="/">Rafael Romão</a>
+  <a class="masthead-title" href="/">
+    <img class="rail-portrait" src="../img/rafael.jpg" alt="" width="400" height="400" loading="eager" decoding="async">
+    <span class="rail-name">Rafael Romão</span>
+    <span class="rail-role">Director of Technology &middot; Belo Horizonte</span>
+  </a>
+  <div class="rail-scroll">
   <nav class="masthead-nav" aria-label="Sections">
-    <a href="/#career">Career</a>
-    <a href="/#systems">Systems</a>
-    <a class="opt" href="/#method">Method</a>
-    <a href="/#open-source">Open source</a>
+    <a href="/">The short version</a>
+    <!-- BLOG: hidden until the first article publishes. Restore by deleting this comment wrapper.
     <a class="is-blog" href="/blog/">Blog</a>
+    -->
   </nav>
+  <nav class="chapters-nav" aria-label="Chapters">
+    <a href="#borrowed-book"><span class="y nums">1998</span>A borrowed book</a>
+    <a href="#yellow-pages"><span class="y nums">2002</span>The yellow pages</a>
+    <a href="#the-mess"><span class="y nums">2002</span>The mess</a>
+    <a href="#joy-of-objects"><span class="y nums">2003</span>The joy of objects</a>
+    <a href="#going-international"><span class="y nums">2007</span>Going international</a>
+    <a href="#tasks-before-tpl"><span class="y nums">2007</span>Tasks, three years early</a>
+    <a href="#architect"><span class="y nums">2009</span>Architect, for the first time</a>
+    <a href="#big-change"><span class="y nums">2011</span>Time for a big change</a>
+    <a href="#the-word-came-later"><span class="y nums">2012</span>The word came later</a>
+    <a href="#a-step-back"><span class="y nums">2015</span>A step back</a>
+    <a href="#a-step-forward"><span class="y nums">2016</span>A step forward</a>
+    <a href="#back-to-java"><span class="y nums">2019</span>Back to Java</a>
+    <a href="#the-multiplier"><span class="y nums">2020</span>The multiplier</a>
+    <a href="#other-side"><span class="y nums">2021</span>The other side of the desk</a>
+    <a href="#forty-keys"><span class="y nums">2022</span>Forty keys</a>
+    <a href="#agentic-engineering"><span class="y nums">2025</span>Agentic engineering</a>
+  </nav>
+  </div>
+  <div class="rail-foot">
+    <ul class="rail-social">
+      <li><a href="mailto:rafaelromao@gmail.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/rafaelromao" rel="me noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/rafaelromao" rel="me noopener">GitHub</a></li>
+    </ul>
+  </div>
   <button class="theme-btn" type="button" id="theme" aria-label="Switch between light and dark">
     <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.4 12h2.2M19.4 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
     <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
@@ -54,7 +84,7 @@
   <section class="story-intro">
     <a class="back" href="/">&larr; Back to the short version</a>
     <h1>The long version.</h1>
-    <p class="deck">Twenty-eight years, told as twelve chapters. A borrowed book, a page of phone numbers, a concurrency primitive I had no business writing, and an architecture that turned out to have a name. I have kept the parts that taught me something, including the ones that went badly.</p>
+    <p class="deck">Twenty-eight years, told as sixteen chapters. A borrowed book, a page of phone numbers, a concurrency primitive I had no business writing, and an architecture that turned out to have a name. I have kept the parts that taught me something, including the ones that went badly.</p>
   </section>
 
   <ol class="chapters">
@@ -205,11 +235,65 @@
       <article class="rail reveal">
         <p class="ch-when nums">2019<span class="n">12</span></p>
         <div>
-          <h2 id="back-to-java">Back to Java, and past it</h2>
+          <h2 id="back-to-java">Back to Java</h2>
           <p>From 2012 onwards I worked mostly in C# and .NET on the backend. But most of the books I was reading used Java, most of the operational work I touched sat in a Java ecosystem, and the market I wanted was not especially interested in .NET even after .NET Core. My last real contact with the language had been around Java 6.</p>
-          <p>There was also a plainer argument. I would not convince anyone I was good at software architecture while being out of date about one of the two platforms I claimed to know. So I went and got certified on Java SE 11, then learned Spring properly. From mid-2019 I studied hard, and by mid-2020 I was comfortable and productive again.</p>
-          <p>Since then the shape of the work has changed rather than the subject. Principal engineer, then Director of Technology: technical strategy, engineering practice, and the development of other engineers, while staying in the room for the decisions that are genuinely hard. Since 2025 most of what I build personally is built with coding agents, which is why <a href="https://github.com/rafaelromao/sandman">Sandman</a> exists. If I am going to recommend a practice to an engineering organisation, I would rather have found its sharp edges myself first.</p>
-          <p class="landing"><b>What it taught me</b>Twenty-eight years in, the half-life of a specific technology is shorter than the half-life of knowing how to pick one up. The languages on my timeline have changed roughly every decade. What has not changed is the habit of going and finding out.</p>
+          <p>There was also a plainer argument, and it is the one that actually moved me.</p>
+          <p class="pull">I could not defend the claim I was making about myself.</p>
+          <p>I was presenting as someone with judgement about software architecture while being a decade out of date on one of the two platforms I claimed to know. That is not a gap in a CV, it is a hole in an argument. So I closed it deliberately: certified on Java SE 11, then Spring properly. Hard study from mid-2019, comfortable and productive again by mid-2020.</p>
+          <p class="landing"><b>What it taught me</b>Choosing what to learn is a technical decision, and it deserves the same honesty as any other. The question was not which language I preferred. It was which claim about myself I could still support under questioning.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2020<span class="n">13</span></p>
+        <div>
+          <h2 id="the-multiplier">The multiplier</h2>
+          <p>A high-throughput messaging system for a client in insurance, where a dropped or duplicated message is not a retry, it is a business event somebody has to explain. I owned the architecture and led delivery, and stayed close to the parts that decide whether a system like that holds: delivery semantics, queueing under load, serialization cost, the security model around it.</p>
+          <p>What I remember is not the architecture. It is the week I realised I was spending most of my time in other people's problems rather than my own, and that this was not an interruption of the work but the work. I was attached to two teams as a technical multiplier. The distributed-systems bugs I helped chase were theirs. The practices we standardised for real-time systems were going to be used by people I would never meet.</p>
+          <p class="pull">The system shipped. The teams outlasted it.</p>
+          <p class="landing"><b>What it taught me</b>At some point your output stops being code and becomes other people's capability, which is uncomfortable because it never shows up in a diff. I had to learn to count a week as productive when the only artefact was that two engineers could now debug something without me.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2021<span class="n">14</span></p>
+        <div>
+          <h2 id="other-side">The other side of the desk</h2>
+          <p>Principal engineer first, setting technical direction on critical client work and helping shape how the company hired and trained. Then Director of Technology, which is a different job wearing a similar name: organisational priorities translated into technical programs, delivery, internal tools, engineer development, and pre-sales work for AI and cloud in North America.</p>
+          <p>The story I am most pleased with from these years is not a system. An intern arrived from a non-traditional background and would not have passed a conventional screen. We built an actual path: regular milestones, a senior engineer alongside, work that got harder on purpose, checkpoints where we said plainly how it was going. Billable within six months, converted to full time, and now a senior engineer who mentors other people.</p>
+          <p>I stayed in the room for the hard technical decisions, and I would not take a role that did not let me. But the decisions I could make by authority turned out to be the least interesting ones available.</p>
+          <p class="landing"><b>What it taught me</b>At this scope you are rarely choosing the answer. You are choosing which questions are cheap for other people to answer, which constraints they inherit, and what the default is when nobody is looking. That is leverage, and it is slower and less satisfying than being right in a meeting.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2022<span class="n">15</span></p>
+        <div>
+          <h2 id="forty-keys">Forty keys</h2>
+          <p>In 2022 I started building my own keyboards, and I have not really stopped: a split keyboard configuration tuned for Portuguese, English, numbers and programming with Vim, then <a href="https://github.com/rafaelromao/romak">a layout of my own</a> for people who write both languages, then firmware modules, then designing the hardware itself. Somewhere past two thousand commits.</p>
+          <p>People assume it is a hobby that happens to be near my job. It is closer to the opposite. Firmware is the most honest environment I work in. There is no room for a vague abstraction in a devicetree file, the memory budget is measured in kilobytes, and a keypress either resolves correctly in single-digit milliseconds or you feel it in your hands immediately. Nothing about being senior helps.</p>
+          <p class="pull">It is the smallest system I own end to end: hardware, firmware, host daemon, editor.</p>
+          <p>It is also the only place I still get to hold an entire system in my head at once, which is a thing I was doing daily twenty years ago and now have to go looking for.</p>
+          <p class="landing"><b>What it taught me</b>Seniority quietly removes you from the feedback loops that made you good. A constraint you chose yourself, with a physical consequence and no way to delegate it, is one of the few reliable ways to put yourself back in one.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2025<span class="n">16</span></p>
+        <div>
+          <h2 id="agentic-engineering">Agentic engineering</h2>
+          <p>Since 2025, most of what I build personally is built with coding agents. That is a real change in how I work and I would rather be explicit about it than quietly impressive: <a href="https://github.com/rafaelromao/sandman">Sandman</a> is a tool for orchestrating them, and its implementation was itself largely agent-written. I am not presenting it as evidence of Go fluency. I am presenting it as evidence of what I think this practice needs.</p>
+          <p>Which is the same thing any delivery process has always needed. A clear specification. An isolated place to execute, so a mistake is contained. An event log, so you can reconstruct what happened. Verification that does not depend on the thing being verified. A human review gate. Sandman pulls issues from GitHub, renders them through prompt templates, and runs each agent in its own worktree or container with dependency-aware scheduling, because those are the shapes those requirements take when you make them concrete.</p>
+          <p>I built it before recommending any of this to an engineering organisation, on the principle that I would rather find a practice's sharp edges myself than watch a team find them on my advice.</p>
+          <p class="landing"><b>What it taught me</b>Agents change the cost of producing code. They do not change the cost of being wrong. Everything downstream of that, boundaries, contracts, verification, knowing which part of a system you cannot afford to guess at, gets more valuable rather than less. Twenty-eight years in, that is the most reassuring thing I have learned recently.</p>
         </div>
       </article>
     </li>
@@ -223,7 +307,6 @@
     </div>
     <p class="actions">
       <a class="btn btn-primary" href="/">The short version</a>
-      <a class="btn" href="/blog/">Blog</a>
     </p>
   </section>
 </main>
@@ -238,7 +321,6 @@
       <li><a href="mailto:rafaelromao@gmail.com">Email</a></li>
       <li><a href="https://linkedin.com/in/rafaelromao" rel="me noopener">LinkedIn</a></li>
       <li><a href="https://github.com/rafaelromao" rel="me noopener">GitHub</a></li>
-      <li><a href="/blog/">Blog</a></li>
       <li><a href="https://www.credly.com/users/rafael-romao" rel="noopener">Credly</a></li>
       <li><a href="https://goodreads.com/rafaelromao" rel="me noopener">Goodreads</a></li>
     </ul>
