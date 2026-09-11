@@ -192,7 +192,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 4vw, 3rem); }
 .hero-grid { display: grid; gap: 2rem; align-items: start; }
 @media (min-width: 52rem) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr) 15rem; gap: 3.5rem; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr) 12.5rem; gap: 3.5rem; }
 }
 
 .role-line {
@@ -201,10 +201,21 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 }
 .role-line b { color: var(--accent-ink); font-weight: 600; }
 
+/* The headline is the LinkedIn one, so it is a long three-clause string rather
+   than a short phrase: smaller than a tagline would be, with the pipes muted so
+   they read as separators instead of glyphs. */
 .hero h1 {
-  font-size: clamp(2.35rem, 7.2vw, 4.15rem);
-  line-height: 1.02; letter-spacing: -0.033em;
-  margin: 0 0 1.25rem; max-width: 15ch; text-wrap: balance;
+  font-size: clamp(1.6rem, 3.3vw, 2.4rem);
+  line-height: 1.18; letter-spacing: -0.022em;
+  margin: 0 0 0.85rem; text-wrap: pretty;
+}
+.hero h1 .bar {
+  color: var(--ink-3); font-weight: 400;
+  padding: 0 0.12em; letter-spacing: 0;
+}
+.tagline-line {
+  font-size: clamp(1.05rem, 2vw, 1.22rem); line-height: 1.35;
+  color: var(--accent-ink); margin: 0 0 1.15rem; letter-spacing: -0.01em;
 }
 .hero-deck {
   font-family: var(--font-ui); font-size: clamp(1.02rem, 1.9vw, 1.16rem);
@@ -213,14 +224,11 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .hero-deck strong { color: var(--ink); font-weight: 600; }
 
 .portrait { margin: 0; }
+/* The source is 400px square, so cap the display at 200px to keep it 2x. */
 .portrait img {
-  width: 100%; max-width: 15rem; aspect-ratio: 1; object-fit: cover;
-  border-radius: 3px; filter: saturate(0.92);
+  width: 100%; max-width: 12.5rem; aspect-ratio: 1; object-fit: cover;
+  border-radius: 0.85rem;
   border: 1px solid var(--rule);
-}
-.portrait figcaption {
-  font-family: var(--font-ui); font-size: 0.74rem; color: var(--ink-3);
-  margin-top: 0.7rem; max-width: 15rem; line-height: 1.45;
 }
 
 .facts {
