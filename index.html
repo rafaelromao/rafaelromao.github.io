@@ -1,536 +1,599 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rafael Romão — Software Architecture &amp; Engineering Leadership</title>
+<meta name="description" content="Rafael Romão is a software engineer and technology leader in Belo Horizonte, Brazil. Twenty-four years across backend systems, distributed architecture, developer platforms and engineering leadership.">
+<meta name="author" content="Rafael Romão">
+<link rel="canonical" href="https://rafaelromao.github.io/">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Rafael Romão — Software Architecture &amp; Engineering Leadership">
+<meta property="og:description" content="Twenty-four years across backend systems, distributed architecture, developer platforms and engineering leadership.">
+<meta property="og:url" content="https://rafaelromao.github.io/">
+<meta property="og:image" content="https://rafaelromao.github.io/img/rafael.jpg">
+<meta name="twitter:card" content="summary">
 
-  <title>Rafael Romão</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f9f7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1b26" media="(prefers-color-scheme: dark)">
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script>
+  /* Set the theme before first paint so a stored preference never flashes.
+     The .js class gates the scroll reveals: without scripting nothing is hidden. */
+  document.documentElement.classList.add('js');
+  try {
+    var t = localStorage.getItem('kb-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+</script>
 
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
 
-  <!-- Custom styles for this template -->
-  <link href="css/resume.css" rel="stylesheet">
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafael Romão",
+  "alternateName": "Rafael Moreno Romão",
+  "jobTitle": "Director of Technology",
+  "worksFor": { "@type": "Organization", "name": "Avenue Code" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressCountry": "BR" },
+  "url": "https://rafaelromao.github.io/",
+  "image": "https://rafaelromao.github.io/img/rafael.jpg",
+  "knowsLanguage": ["pt-BR", "en"],
+  "sameAs": [
+    "https://linkedin.com/in/rafaelromao",
+    "https://github.com/rafaelromao",
+    "https://www.credly.com/users/rafael-romao"
+  ]
+}
+</script>
 </head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<body id="page-top">
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">Rafael Romão</span>
-      <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
-      </span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#story">Developer Story</a>
-          <a class="card-link js-scroll-trigger" href="#began">Where it all began</a></br>
-          <a class="card-link js-scroll-trigger" href="#firstchallenge">The first challenge</a></br>
-          <a class="card-link js-scroll-trigger" href="#thejoyofjava">The Joy of Java</a></br>
-          <a class="card-link js-scroll-trigger" href="#goinginternational">Going International</a></br>
-          <a class="card-link js-scroll-trigger" href="#tasksbeforetpl">Task before TPL</a></br>
-          <a class="card-link js-scroll-trigger" href="#softwarearchitect">Software Architect</a></br>
-          <a class="card-link js-scroll-trigger" href="#timeforabigchange">Time for a big change</a></br>
-          <a class="card-link js-scroll-trigger" href="#microservices">Microservices</a></br>
-          <a class="card-link js-scroll-trigger" href="#astepback">A step back</a></br>
-          <a class="card-link js-scroll-trigger" href="#astepforward">A step forward</a></br>
-          <a class="card-link js-scroll-trigger" href="#backtojava">Back to Java</a></br>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#education">Education</a>
-          <a class="card-link js-scroll-trigger" href="#mathematics">Mathematics</a></br>
-          <a class="card-link js-scroll-trigger" href="#system-analysis">System Analysis</a></br>
-          <a class="card-link js-scroll-trigger" href="#software-architecture">Software Architecture</a></br>
-          <a class="card-link js-scroll-trigger" href="#big-data">Big Data</a></br>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#publications">Publications</a>
-          <a class="card-link js-scroll-trigger" href="#publications">Paper: Microservices</a></br>
-          <a class="card-link js-scroll-trigger" href="#publications">How to: OCP Java SE 11</a></br>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#awards">Certifications</a>
-          <a class="card-link js-scroll-trigger" href="#awards">OCP: Java SE 11 Developer</a></br>
-        </li>
-      </ul>
-    </div>
+<header class="masthead">
+  <a class="masthead-title" href="#top">Rafael Romão</a>
+  <nav class="masthead-nav" aria-label="Sections">
+    <a href="#now">Now</a>
+    <a href="#career">Career</a>
+    <a href="#systems">Systems</a>
+    <a class="opt" href="#method">Method</a>
+    <a href="#open-source">Open source</a>
+    <a class="opt" href="#writing">Writing</a>
+    <a class="is-blog" href="/blog/">Blog</a>
   </nav>
+  <button class="theme-btn" type="button" id="theme" aria-label="Switch between light and dark">
+    <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.4 12h2.2M19.4 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+    <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
+  </button>
+</header>
 
-  <div class="container-fluid p-0">
+<main id="main">
+  <div id="top"></div>
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
-      <div class="w-100">
-        <h1 class="mb-0">Rafael
-          <span class="text-primary">Romão</span>
-        </h1>
-        <div class="subheading mb-5">Software Architect | Backend Developer
-          <a href="mailto:rafaelromao@gmail.com">rafaelromao@gmail.com</a>
-        </div>
-        <p class="lead mb-5 text-justify">
-          Rafael Romão is passionate about software development since 1998 and have worked as software developer since
-          2002,
-          working mostly with Delphi, C# and Java, among a few other things.</br></br>
-          He has experience with web, desktop and distributed applications development, with a strong focus on
-          Microservices,
-          in business areas like laboratory automation, geographic information systems, electric utilities management,
-          messaging systems and retail market.</br></br>
-          He is dedicated to his job and satisfied with the career he's chosen, pursuing quality in everything he does,
-          always up to date with new trends, technologies and methodologies.</br></br>
-          In his spare time, he likes to travel, hike and practice nature photography.
-          To know more about him, check his developer story below.</br></br>
+  <!-- ============ hero ============ -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <p class="role-line">Director of Technology at <b>Avenue Code</b> &middot; Belo Horizonte, Brazil</p>
+        <h1>Systems that stay easy to change.</h1>
+        <p class="hero-deck">Twenty-four years of backend systems, and of the platforms and practices that keep them changeable. I work where implementation detail meets architecture: the data path, the failure mode, the delivery bottleneck. Then I move the boundary that caused it.</p>
+        <ul class="facts nums">
+          <li>Professional since 2002</li>
+          <li>Java, C#, Go</li>
+          <li>Distributed &amp; event-driven systems</li>
+          <li>Português, English</li>
+        </ul>
+        <p class="actions">
+          <a class="btn btn-primary" href="/blog/">Read the blog</a>
+          <a class="btn" href="https://linkedin.com/in/rafaelromao" rel="me noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/rafaelromao" rel="me noopener">GitHub</a>
+          <a class="btn" href="mailto:rafaelromao@gmail.com">Email</a>
         </p>
-        <div class="social-icons">
-          <a target="window" href="https://linkedin.com/in/rafaelromao">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a target="window" href="https://github.com/rafaelromao">
-            <i class="fab fa-github"></i>
-          </a>
-          <a target="window" href="https://sourcerer.io/rafaelromao">
-            <i class="fa fa-trophy"></i>
-          </a>
-          <a target="window" href="https://hyperskill.org/profile/4456910">
-            <i class="fa fa-code"></i>
-          </a>
-          <a target="window" href="https://twitter.com/rmromao">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a target="window" href="https://goodreads.com/rafaelromao">
-            <i class="fas fa-book"></i>
-          </a>
-          <a target="window" href="https://500px.com/rafaelromao">
-            <i class="fas fa-camera"></i>
-          </a>
+      </div>
+      <figure class="portrait">
+        <img src="img/rafael.jpg" width="720" height="720" alt="Rafael Romão" loading="eager" decoding="async">
+        <figcaption>Belo Horizonte, Brazil. A good share of the thinking happens on a trail.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ span chart ============ -->
+  <figure class="chart-wrap">
+    <div class="chart-scroll">
+      <svg class="chart" viewBox="0 0 900 300" role="img"
+           aria-label="Two timelines from 1997 to 2026. The upper one steps up through five levels of scope: computer technician from 1997, engineer from 2002, architect and senior individual contributor from 2009, principal from 2020, director from 2021. The lower one shows working languages: Delphi from 1999 to 2011, Java in 2003 and again from 2019 to today, C# from 2007 to 2020, Go from 2025 to today.">
+        <desc>The same history is written out in full in the career ledger below.</desc>
+
+        <!-- five-year grid -->
+        <g class="grid-line">
+          <line x1="211.8" y1="28" x2="211.8" y2="262"/>
+          <line x1="334.8" y1="28" x2="334.8" y2="262"/>
+          <line x1="457.8" y1="28" x2="457.8" y2="262"/>
+          <line x1="580.8" y1="28" x2="580.8" y2="262"/>
+          <line x1="703.8" y1="28" x2="703.8" y2="262"/>
+          <line x1="826.8" y1="28" x2="826.8" y2="262"/>
+        </g>
+        <line class="axis-line" x1="138" y1="160" x2="870" y2="160"/>
+
+        <!-- scope track -->
+        <g class="lbl" text-anchor="end">
+          <text x="126" y="44">Director</text>
+          <text x="126" y="68">Principal</text>
+          <text x="126" y="92">Architect / Senior</text>
+          <text x="126" y="116">Engineer</text>
+          <text x="126" y="140">Technician</text>
+        </g>
+        <path class="step" d="M140 136 H269.1 V112 H449.7 V88 H724.2 V64 H744.9 V40 H870"/>
+        <g class="dot">
+          <circle cx="269.1" cy="112" r="3.4"/>
+          <circle cx="449.7" cy="88" r="3.4"/>
+          <circle cx="724.2" cy="64" r="3.4"/>
+          <circle cx="744.9" cy="40" r="3.4"/>
+        </g>
+        <circle class="dot-now" cx="870" cy="40" r="5"/>
+
+        <!-- language track -->
+        <g class="lbl" text-anchor="end">
+          <text x="126" y="189">Delphi</text>
+          <text x="126" y="211">Java</text>
+          <text x="126" y="233">C# / .NET</text>
+          <text x="126" y="255">Go</text>
+        </g>
+        <g>
+          <rect class="lang" x="187.2" y="180" width="301.9" height="11" rx="1.5"/>
+          <rect class="lang" x="285.6" y="202" width="24.6" height="11" rx="1.5"/>
+          <rect class="lang-now" x="679.2" y="202" width="190.8" height="11" rx="1.5"/>
+          <rect class="lang" x="384.0" y="224" width="319.8" height="11" rx="1.5"/>
+          <rect class="lang-now" x="826.8" y="246" width="43.2" height="11" rx="1.5"/>
+        </g>
+
+        <!-- year axis -->
+        <g class="ax" text-anchor="middle">
+          <text x="211.8" y="280">2000</text>
+          <text x="334.8" y="280">2005</text>
+          <text x="457.8" y="280">2010</text>
+          <text x="580.8" y="280">2015</text>
+          <text x="703.8" y="280">2020</text>
+          <text x="826.8" y="280">2025</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption class="chart-key">Scope over time, and the languages underneath it. The gap in the Java row is real: a J2EE course in 2003, then sixteen years of Delphi and C# before coming back to the platform deliberately in 2019.</figcaption>
+  </figure>
+
+  <!-- ============ 01 now ============ -->
+  <section class="band" id="now">
+    <div class="row">
+      <p class="idx">01</p>
+      <div>
+        <h2 class="band-title">Now</h2>
+        <div class="prose">
+          <p>I am Director of Technology at Avenue Code, where I pair organizational leadership with hands-on technical work: architecture direction, engineering practices, delivery, and the development of engineers and technical leaders. I stay in the room for the decisions that are genuinely hard, the ones involving ambiguity, cross-team impact, modernization, scalability, or whether a system will still be maintainable in three years.</p>
+          <p>The thread through all of it is <strong>engineering leverage</strong>. Simplify systems and workflows. Draw architectural boundaries that hold. Shorten feedback loops. Give engineers what they need to decide well on their own.</p>
+          <p>Most recently I have been applying that to <strong>agentic engineering</strong>: how autonomous coding agents fit inside a disciplined delivery process through clear specifications, isolated execution, observability, verification, and human review. I build the tools to test the idea before recommending it to anyone, which is where <a href="https://github.com/rafaelromao/sandman">Sandman</a> came from.</p>
+          <p>The title on the org chart has changed several times. The work I care about has not: system boundaries, data paths, failure modes, and what a team can safely change next.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="story">
-      <div class="w-100">
-        <h2 class="mb-5">Developer Story</h2>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="began" class="mb-0">Where it all began</h3>
-            <div class="subheading mb-3">Am I good enough?</div>
-            <p class="text-justify">
-              Back in 1998, when I was 16, a friend of mine lend me a copy of a Delphi 3 book. At the time, I used to
-              work as storekeeper and all I knew about computers was how to use Windows 3.1 and 95, Word 6, Excel 5 and
-              MS-DOS. It was a informatics course pack common in Brazil at the time.</br></br>
-              After reading this book, I used my spare time at work to go to the company's office and use my boss's
-              computer to implement some examples and create small applications, using Paradox, DBE and Delphi 3 to
-              automate some small tasks. My boss liked the idea of receiving free software and said I could use all
-              spare time I had in his computer.</br></br>
-              5 years went by and I decided it was time to look for a real job as a software developer. By that time, I
-              had accumulated a lot of experience and was convinced by a friend, a Clipper programmer, that I was
-              already good enough to give this step. I was 20 at the time.</br></br>
-              I grabbed the yellow pages, remember it was early 2002, and listed the name and phone number of all
-              software development companies in my city. It was not that many. Then the next step was to call each one,
-              inform I was interested in appling for a programmer position and ask for an e-mail address to send my
-              resume.</br></br>
-              Well, it was sassy, but it worked, and in May 2002 I was already working as a software developer, in a
-              company that had clients in Brazil and Switzerland. Since 1999 I was already studying english by myself,
-              to be able to understand the information I used to find about Delphi in the early Internet, and this
-              knowledge was crucial, since from the beggining, english was already the default written language at work.
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="firstchallenge" class="mb-0">The First Real Challenge</h3>
-            <div class="subheading mb-3">How do the professionals work?</div>
-            <p class="text-justify">
-              I remember seeing that messy code at my first work and thinking, well, code is more complicated than I
-              thought. I have so much to learn to be at the same level as these guys.</br></br>
-              Actually, that code was just messy, but I was only able to realize that years later. Lots of patterns and
-              idioms common to structure programming, a years old Delphi desktop app that needed to be refactored to be
-              moved from DBase to Paradox. Not that much of a improvement, but significant at the time.</br></br>
-              It was a project from a brazilian customer. The senior guy told me I should not touch the other project,
-              from the international customer, until he said otherwise. Something that took about 2 years to
-              happen.</br></br>
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="thejoyofjava" class="mb-0">The Joy of Java</h3>
-            <div class="subheading mb-3">Amazed by OOP</div>
-            <p class="text-justify">
-              Delphi 7 supported a few OOP features, but not all of them. In 2003 I had a chance to take a Java
-              programming course (J2EE)
-              and along with it, apply the OOP concepts I had studied in the last few years in its full glory.</br></br>
-              This course introduced me to the Java 1.3 and J2EE.
-              I honestly did not like the "do it as I say" style of J2EE, but the OOP in practice was amazing.</br></br>
-              Not only for me, but for the whole team. In the next weeks we started to see
-              <a target="window" href="https://en.wikipedia.org/wiki/Camel_case">camel cased code</a> methods in Delphi
-              code,
-              a mistake that we soon came to regret.</br></br>
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="goinginternational" class="mb-0">Going International</h3>
-            <div class="subheading mb-3">Now they trust me!</div>
-            <p class="text-justify">
-              In the last two years, I worked mostly on Blood Bank Management systems.
-              I had the opportunity not only to learn a new business domain but also start to develop and apply my own
-              programing idioms.
-              Now I could make my own mess, and learn with it too.</br></br>
-              After some time, the demand on the international client started to increase and my good english skills,
-              at the time only writing and reading, helped me to be accepted in the team.</br></br>
-              A few years later, 2007 to be more precise, I was travelling to Europe to work on site.
-              That was my first experience with a multiregional team and was crucial for my carrier as a software
-              consultant.</br></br>
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="tasksbeforetpl" class="mb-0">Tasks before TPL</h3>
-            <div class="subheading mb-3">Concurrency with style</div>
-            <a target="windows"
-              href="https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl">TPL</a>
-            was only introduced with .NET Framework 4, in 2010. The year was 2007 and we had to develop a new software
-            for the international client.
-            An automation tool to drive a new laboratory robot they were building, and after the bad results another
-            team had with
-            their first incursions with Java, and the obsolecence of Delphi, we decided to go with the shiny C#
-            2.0.</br></br>
-            This tool had a simple UI, but had to drive a set of motors in parallel, to make the robot perform the
-            operation requested.
-            All of us were good with threads, but that in the amount we needed this time, it would be tedious and error
-            prone.
-            That was when I had the idea to write a Task class that would perform a specific operation in a background
-            thread.
-            I liked to see the name Task in TPL years later, instead of Future, like in <a targe="window"
-              href="https://docs.elementscompiler.com/Oxygene/Types/FutureTypes/">Oxygene</a>
-            and <a targe="window"
-              href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html">Java</a>.</br></br>
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="softwarearchitect" class="mb-0">Software Architect</h3>
-            <div class="subheading mb-3">First big challenge</div>
-            <p class="text-justify">
-              A new and big contract, a large system, large team and more reasons to be more assertive in how the system
-              had to be developed.
-              It would be our first experience with <a targe="window"
-                href="https://docs.remotingsdk.com/Servers/Delphi/">web services</a>
-              in the backend side.</br></br>
-              It was 2008 and I could work for the first time as Software Architect, describing how the software would
-              be structured and
-              creating the foundations on which the development team would deliver the new system.
-              Among the challenges, create a replicable module structure so that new features could be delivered easier,
-              but that was not my favorite part.</br></br>
-              Delphi was successful in the 2000's mostly due to how their component libraries and drag and drop style
-              made our lives easier,
-              and since my first days as a programmer I already enjoyed developing VCL extensions.
-              This time, I could write a whole component library to be used as the client side library for our <a
-                targe="window" href="https://docs.remotingsdk.com/Servers/Delphi/">RemObjects</a> webservices,
-              an alternative/extension for their <a targe="window" href="https://docs.dataabstract.com/Delphi/">Data
-                Abstract</a>.
-              That was one of my first big accomplishments and sadly, as GitHub was not a thing at the time, is probably
-              lost by now.</br></br>
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="timeforabigchange" class="mb-0">Time for a big change</h3>
-            <div class="subheading mb-3">Another job, another challenge?</div>
-            <p class="text-justify">
-              9+ years working for the same company carries a lot of stress, and it was time for a change.
-              Up to this point, all that I did as a software developer was to build and maintain Desktop applications,
-              using either Delphi or WPF,
-              but for a few years by then the Web was the trend. ASP.NET Web Forms was being replaced by ASP.NET MVC,
-              SPAs were being born after
-              the huge jQuery success, so the conclusion was obvious: To be marketable, I had to learn Web
-              Development.</br></br>
-              The year was 2011 and so far few were the software development books I've read. You can see more details
-              <a target="window" href="https://www.goodreads.com/user/year_in_books/2011/21656058">here</a>.
-              But this time I had to stop using only blog posts and forums as continuous learning resource and get
-              something more reliable.
-              I started with Clean Code, HTML5, jQuert, CSS3, ASP.NET MVC 3 and TDD. They were certainly helpfull, but
-              for my surprise I received a call
-              from someone I didn't know at the time asking if I were a WPF developer that they had I job opening and I
-              was recommended in a developers forum.
-              I still don't know who made this recommendation, but there I was, once again working with WPF.</br></br>
-              For sure I had new challenges, but the migration to Web Development didn't come yet. What certainly came
-              at the time was my appreciation for reading technical books.
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="microservices" class="mb-0">Microservices</h3>
-            <div class="subheading mb-3">As it is called now</div>
-            <p class="text-justify">
-              Almost 2 years working mostly with Geographic Information Systems in WPF, the company CTO called us to a
-              kickoff meeting.
-              A new project, his dream platform, individual backend applications responsible for individual tasks.
-              Each application would do a single job and communicate the results to the others via a high speed message
-              bus.
-              He was excited, but also frustrated, since it was not the first time he was trying to implement a solution
-              like that.
-              My eyes sparkled with that architecture and I asked him to trust me with the job, which he did.
-              That was my first experience with a large backend system and the results were not as good as they could
-              be, but it was a
-              R&D project that could achieve its goals. One of the outcomes of this project was the <a target="window"
-                href="https://reactiveservices.github.io">Reactive Services</a> framework, which I like to present as
-              part of my portifolio.
-              I only uploaded it to GitHub a few years later, but it was born in 2012. An embrio for a Microservices
-              Architecture, before the term <a target="window"
-                href="https://www.martinfowler.com/articles/microservices.html">become popular</a>.
-              A few other concepts were starting to become a trend at the time, like Docker and Spring Boot. Today, we
-              have yet Spring Cloud and Kubernetes, Microservices is now a fully grown architecture and the one I'm
-              passionate about.
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="astepback" class="mb-0">A step back</h3>
-            <div class="subheading mb-3">No more pressure</div>
-            <p class="text-justify">
-              At this time, I was working as a Software Architect and Team Lead, but a new opportunity arrised. Leading
-              a team in a different company in a scenario that was more like what I was looking for.
-              I went for it, but something went wrong and when I started in the new job, the promissed leading position
-              wasn't available anymore. I got hired and had a position available for me, but as a regular programmer. No
-              leadership role, no software architecture to be responsible for.
-              Turns out it was a blessing. I was there with the compensation I desired, working with something I love,
-              coding, but without the extra pressure and responsibilities.</br></br>
-              Obviously, that couldn't last, and I was prepared for that. I was hired occupy a much higher position and
-              being paid for that, but that was not what I was doing in a daily basis, so less than a year later, I got
-              fired!
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="astepforward" class="mb-0">A step forward</h3>
-            <div class="subheading mb-3">Consulting</div>
-            <p class="text-justify">
-              Since some years back, I was getting ready for a position in an international company, working for
-              international clients again.
-              My English skills were good already, but remember, I haven't been a Computer Sciences student, and
-              Algorithms was not something I learned for good in my self-taugh studies or graduation courses,
-              so I had to compensate that flaw. For sure that topic would be present in any international technical
-              interview.</br></br>
-              The <a target="window" href="https://www.coursera.org/learn/algorithms-part1">Sedgewick course in
-                Coursera</a>,
-              the <a target="window" href="https://mitpress.mit.edu/books/introduction-algorithms-third-edition">CLRS
-                book</a>
-              and <a target="window" href="https://www.oreilly.com/library/view/ace-the-programming/9781118757963/">Ace
-                the Programming Interview</a>
-              got me covered. And surprisingly enough, the undergrad in Mathematics was crucial, since that job required
-              experience with software optimizations and lots of mathematics.
-              A position that was oppened all of the sunden, a week later I got fired from my last job.
-              I've got the international consulting job and soon, once again, became a reference among my coleagues.
-            </p>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="backtojava" class="mb-0">Back to Java</h3>
-            <div class="subheading mb-3">Don't pick fights you can't win</div>
-            <p class="text-justify">
-              Since that first experience with Microservices, back in 2012, I was working mostly with C# and .NET, in
-              the backend side.
-              Microservices is now a daily thing and devops work is something I can't stay a single day without.
-              Through the last decade so far, it's 2020 as I'm writing, <a target="window"
-                href="https://goodreads.com/rafaelromao">most books I've read</a>
-              were ilustrated in Java, most devops work I do in a daily basis requires interacting with a Java
-              ecosystem,
-              and the market in San Francisco is not quite open for .NET and C#, even after the rise of <a
-                target="window" href="https://dot.net">.NET Core</a>.
-              Microsoft Development Tools are great for productivity and performance, but the lack of a bigger and
-              mature ecosystem outside Microsoft Azure,
-              along with a smaller development community, made the opportunities become scarce.</br></br>
-              It was time to check what this new Java 11 was all about. My last contact with the language, other than
-              simple helper tools and studies, was years ago, in Java 6 I guess,
-              so it was worth some reading. Also, I wouldn't convince anyone I'm good at Software Architecture without
-              at least knowing well what Modern Java has to offer.</br></br>
-              The path that I chose was to learn and be
-              <a target="window"
-                href="https://www.youracclaim.com/badges/1cd8accf-f872-40ae-875a-61887c6618d8/public_url">
-                certificated in Java 11 SE</a> and later the Spring Framework, and
-              I can tell the suprises in this learing path are really amazing.
-              Since the end of the first half of 2019, I got into a intense study routing and by the mid of 2020 I could
-              already
-              feel totally confortable and productive with the language and its main frameworks and tools.
-              </br></br>
-              Next steps? More books, more Java, more Software Architecture. Learning never ends for a Software
-              Developer.
-            </p>
-          </div>
-        </div>
+  <!-- ============ 02 career ============ -->
+  <section class="band" id="career">
+    <div class="row">
+      <p class="idx">02</p>
+      <div>
+        <h2 class="band-title">Career</h2>
+        <p class="band-note">Nine roles, six companies, one continuous direction: from fixing office computers to setting technical direction across an engineering organization, without ever stopping writing software.</p>
       </div>
+    </div>
 
-    </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
-      <div class="w-100">
-        <h2 class="mb-5">Education</h2>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 id="mathematics" class="mb-0"><a target="window"
-                href="http://www.mat.ufmg.br/licenciatura-em-matematica/">University of Minas Gerais - UFMG</a></h3>
-            <div class="subheading mb-3">Licenciate in Mathematics</div>
-            <div>I started this undergraduation when I was already working as a programmer. I could not afford a payed
-              graduation at the time, so I choose a public one (we have exceptional public undergraduation courses for
-              free
-              in Brazil) that could allow me to study at night and also prepare me, along with my seft taught, to take
-              an specialization course in System Analysis later.</div>
-            <p></p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">January 2003 - July 2007</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 id="system-analysis" class="mb-0"><a target="window" href="https://dcc.ufmg.br/dcc/?q=en">University of
-                Minas Gerais - UFMG</a></h3>
-            <div class="subheading mb-3">System Analysis</div>
-            <div>In this course, I could ratify most software development concepts I've learned by myself in the prior
-              years, as well as correct some misconceptions. At this point, I had what some companies were starting to
-              consider essential for a programmer in Brazil, a software engineering degree.</div>
-            <p></p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2007 - May 2009</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 id="software-architecture" class="mb-0"><a target="window"
-                href="https://www.igti.com.br/cursos/estrategias-em-arquitetura-de-software/">Institute of Management
-                and Information Tecnologies - IGTI</a></h3>
-            <div class="subheading mb-3">Software Architecture</div>
-            <div>At this time, Software Architecture was already my area of choice into software development and I a
-              course on that area was still missing, so I took it. I learned a lot during these two years and that
-              definetly changed my carrier, not only regarding technical skills, but soft skills as well.</div>
-            <p></p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2012 - December 2013</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 id="big-data" class="mb-0"><a target="window"
-                href="https://www.coursera.org/specializations/big-data">University of California - San Diego /
-                Coursera</a></h3>
-            <div class="subheading mb-3">Big Data</div>
-            <div>It's 2016 and the amount of data our software have to handle is now humongous. Traditional software
-              development techniques would certainly fail and I had to be prepared for this new scenario. This course
-              helped me to understand it and tackle its new challenges.</div>
-            <p></p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2016 - July 2017</span>
-          </div>
-        </div>
-
+    <div class="org-head rail">
+      <p class="span nums">2016 &ndash; now</p>
+      <div>
+        <h3>Avenue Code</h3>
+        <p class="org-note">Ten years. Four roles. A consultancy delivering software for clients in the United States and Brazil.</p>
       </div>
-    </section>
+    </div>
+    <ol class="ledger">
+      <li>
+        <article class="post rail reveal">
+          <p class="post-when nums">Sep 2021 &ndash; now<span class="len">5 yrs 1 mo</span></p>
+          <div>
+            <h3 class="post-title">Director of Technology</h3>
+            <p class="post-org"><span class="here">Avenue Code</span> &middot; Belo Horizonte, Brazil</p>
+            <ul class="post-list">
+              <li>Translate business and organizational priorities into technical strategy, architecture direction, and engineering initiatives that can actually be executed.</li>
+              <li>Provide technical guidance on cross-cutting work where system boundaries, modernization, scalability, reliability or long-term maintainability are the central concern.</li>
+              <li>Support engineering leaders and senior engineers through architecture decisions, problem decomposition, trade-offs, and high-impact delivery risk.</li>
+              <li>Establish and evolve the engineering practices that govern quality, feedback speed, developer experience and consistency across teams.</li>
+              <li>Mentor engineers and technical leaders toward wider system-design skill, decision-making autonomy, and organizational influence.</li>
+              <li>Introduce AI-assisted and agentic engineering practices with the specifications, isolation, verification, observability and human review they require, building prototypes and open-source tools to validate the approach before promoting it.</li>
+            </ul>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="post rail reveal">
+          <p class="post-when nums">Nov 2020 &ndash; Aug 2021<span class="len">10 mos</span></p>
+          <div>
+            <h3 class="post-title">Principal Software Engineer</h3>
+            <p class="post-org">Avenue Code</p>
+            <p>Set the technical vision for critical client projects and drove the architectural decisions behind scalable, high-performance systems. Mentored cross-functional teams through hard technical problems and raised the floor on coding standards and process.</p>
+            <p>Worked on the company's engineering capability itself: shaping hiring strategy, strengthening technical training, and joining pre-sales to translate business needs into architecture that would survive contact with delivery.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="post rail reveal">
+          <p class="post-when nums">Nov 2019 &ndash; Oct 2020<span class="len">1 yr</span></p>
+          <div>
+            <h3 class="post-title">Consultant Software Engineer</h3>
+            <p class="post-org">Avenue Code</p>
+            <p>Architected and led delivery of a high-throughput, mission-critical messaging system for a client in the insurance industry, under tight security and reliability constraints. Acted as a technical multiplier for two engineering teams, resolving distributed-systems problems, optimizing message queueing and data serialization, and mentoring developers on code quality.</p>
+            <p>Helped standardize internal practice for real-time systems, refine the technical interview process, and evolve the training curriculum.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="post rail reveal">
+          <p class="post-when nums">Oct 2016 &ndash; Oct 2019<span class="len">3 yrs 1 mo</span></p>
+          <div>
+            <h3 class="post-title">Senior Software Engineer</h3>
+            <p class="post-org">Avenue Code &middot; Belo Horizonte, Brazil</p>
+            <p>Drove continuous development of a business-critical mathematical planning application for a large retail client, contributing across the whole lifecycle from feature design through performance tuning and deployment.</p>
+            <p>Engineered the performance and memory optimizations that kept a computationally intensive system stable under heavy load. Led a self-managed team of up to eight senior developers.</p>
+          </div>
+        </article>
+      </li>
+    </ol>
 
-    <hr class="m-0">
+    <div class="org-head rail">
+      <p class="span nums">1997 &ndash; 2016</p>
+      <div>
+        <h3>Before</h3>
+        <p class="org-note">Product engineering and architecture across messaging, utilities, and laboratory software.</p>
+      </div>
+    </div>
+    <ol class="ledger">
+      <li>
+        <article class="post rail reveal">
+          <p class="post-when nums">Nov 2015 &ndash; Sep 2016<span class="len">11 mos</span></p>
+          <div>
+            <h3 class="post-title">Senior System Analyst</h3>
+            <p class="post-org">Take.net</p>
+            <p>Built and extended high-volume messaging for telecom applications as part of the core platforms team. Contributed to a proprietary chatbot platform built on the Lime protocol, which let bots be deployed rapidly across Facebook, Telegram, Skype and SMS gateways, and shipped content-driven bots that improved partner content delivery.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="post rail reveal">
+          <p class="post-when nums">Sep 2011 &ndash; Oct 2015<span class="len">4 yrs 2 mos</span></p>
+          <div>
+            <h3 class="post-title">Senior Software Analyst</h3>
+            <p class="post-org">Concert Technologies &middot; Belo Horizonte, Brazil</p>
+            <p>Specialized in smart grid management software, working the full lifecycle from requirements through architectural maintenance. Led the analysis and refinement of system requirements, keeping user need and technical implementation aligned, and played a central role in implementing and maintaining the architectures underneath.</p>
+            <p>This is where <a href="https://reactiveservices.github.io">Reactive Services</a> began in 2012: a message-bus abstraction for building what the industry would shortly start calling microservices.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="post rail reveal">
+          <p class="post-when nums">Sep 2009 &ndash; Aug 2011<span class="len">2 yrs</span></p>
+          <div>
+            <h3 class="post-title">Software Architect</h3>
+            <p class="post-org">Factor SW</p>
+            <p>Designed and maintained the architecture for client-facing products, holding it against both functional and non-functional requirements. Guided teams toward clean code and maintainable design, documented architectural decisions, ran code reviews, and set technical roadmaps for long-term product evolution.</p>
+            <p>Partnered with development teams in the United States and the Caribbean on blood bank management software, where regulatory compliance was part of the design problem.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="post rail reveal">
+          <p class="post-when nums">May 2002 &ndash; Aug 2009<span class="len">7 yrs 4 mos</span></p>
+          <div>
+            <h3 class="post-title">Software Developer</h3>
+            <p class="post-org">CATI Informática</p>
+            <p>Seven years of maintenance and new development on the company's core products, moving from developer to leading development teams. Pioneered the formal adoption of software architecture as a concept inside the company, which measurably improved quality, scalability and maintainability.</p>
+            <p>Collaborated with teams in Switzerland and France on specialized laboratory software, including the instrument automation work that first pushed me into concurrency.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="post rail reveal">
+          <p class="post-when nums">Feb 1997 &ndash; Mar 2002<span class="len">5 yrs 2 mos</span></p>
+          <div>
+            <h3 class="post-title">Computer Technician</h3>
+            <p class="post-org">DIMAC &middot; Belo Horizonte, Brazil</p>
+            <p>My first job. I started as a storekeeper's assistant and became the technician responsible for the office's software and hardware. Then I taught myself Delphi from a book and started writing small programs to automate the work, which went well enough that in 2002 I left to write software full time.</p>
+          </div>
+        </article>
+      </li>
+    </ol>
+  </section>
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="publications">
-      <div class="w-100">
-        <h2 class="mb-5">Publications</h2>
-        <ul class="fa-ul mb-0">
-          <li>
-            <i id="microservices-paper" class="fa-li fa fa-book text-warning"></i>
-            <a target="window"
-              href="http://info.avenuecode.com/microservices-architecture-whitepaper">
-              Microservices Architecture as a Large-Scale Refactoring Tool
-            </a>
-          </li>
-          <li>
-            <i id="hottopass" class="fa-li fa fa-book text-warning"></i>
-            <a target="window"
-              href="https://medium.com/@rmromao/how-to-pass-the-ocp-java-se-11-certification-9e861bc11fd1">
-              How to pass the OCP Java SE 11 certification
-            </a>
-          </li>
+  <!-- ============ 03 systems ============ -->
+  <section class="band" id="systems">
+    <div class="row">
+      <p class="idx">03</p>
+      <div>
+        <h2 class="band-title">Systems</h2>
+        <p class="band-note">Client work is described at the level of the engineering problem. No customer names, no proprietary detail, no numbers I cannot stand behind.</p>
+      </div>
+    </div>
+    <ol class="systems">
+      <li>
+        <div class="rail reveal">
+          <p class="sys-when nums">2019 &ndash; 2020</p>
+          <div>
+            <h3>Mission-critical insurance messaging</h3>
+            <p>A high-throughput messaging backbone where a dropped or duplicated message was a business event, not a retry. I owned the architecture and led delivery, then stayed close to the parts that decide whether a system like this holds: delivery semantics, queueing behaviour under load, serialization cost, and the security model around it.</p>
+            <p>The lasting output was not only the system. It was two engineering teams that could debug distributed behaviour on their own afterwards, and a set of practices for real-time systems that outlived the engagement.</p>
+            <ul class="stack"><li>Distributed messaging</li><li>Idempotency</li><li>Serialization</li><li>Queue tuning</li></ul>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="rail reveal">
+          <p class="sys-when nums">2016 &ndash; 2019</p>
+          <div>
+            <h3>Retail production planner</h3>
+            <p>A planning application with a spreadsheet-like interface over a large mathematical model, held to an interactive editing budget measured in milliseconds. Meeting it meant treating the calculation as a data-layout problem rather than a code-optimization problem: an in-memory, array-oriented model, results precomputed and versioned in object storage, and careful choices about what to invalidate and when.</p>
+            <p>Three years hands-on, including the deployment path and the build pipeline, leading a self-managed team of up to eight senior engineers.</p>
+            <ul class="stack"><li>C#</li><li>In-memory modelling</li><li>Protocol Buffers</li><li>Blue-green deploys</li><li>Performance</li></ul>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="rail reveal">
+          <p class="sys-when nums">2011 &ndash; 2015</p>
+          <div>
+            <h3>Smart grid platform and Reactive Services</h3>
+            <p>Management software for electric utilities, and the research that came out of it. Working across the lifecycle of a long-lived product made the coupling costs obvious, so in 2012 I built <a href="https://reactiveservices.github.io">Reactive Services</a>: a message-bus abstraction with a RabbitMQ adapter, an authorization model, and opinions about service boundaries and message contracts.</p>
+            <p>Martin Fowler's microservices article landed the following year and gave the pattern its name. Getting there independently, from the pain rather than from the literature, is still how I prefer to arrive at an architecture.</p>
+            <ul class="stack"><li>Message bus</li><li>RabbitMQ</li><li>Service boundaries</li><li>.NET</li></ul>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="rail reveal">
+          <p class="sys-when nums">2015 &ndash; 2016</p>
+          <div>
+            <h3>Chatbot platform on the Lime protocol</h3>
+            <p>High-volume telecom messaging, and a platform that made one bot deployable across Facebook, Telegram, Skype and SMS gateways without rewriting it per channel. The interesting constraint was the abstraction itself: channels differ in delivery guarantees, in message shape, and in what they let you say.</p>
+            <ul class="stack"><li>Lime protocol</li><li>Multi-channel</li><li>Telecom scale</li></ul>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="rail reveal">
+          <p class="sys-when nums">2002 &ndash; 2011</p>
+          <div>
+            <h3>Laboratory automation and blood bank systems</h3>
+            <p>Nine years of regulated, safety-relevant software built with teams in Switzerland, France, the United States and the Caribbean. Instrument automation is where I learned concurrency properly: in 2007, on C# 2.0, I needed to compose asynchronous operations and the language had nothing for it, so I wrote a small task abstraction of my own. The Task Parallel Library arrived three years later and did it better, which was its own useful lesson.</p>
+            <ul class="stack"><li>Delphi</li><li>C#</li><li>Concurrency</li><li>Regulated software</li><li>Distributed teams</li></ul>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ 04 method ============ -->
+  <section class="band" id="method">
+    <div class="row">
+      <p class="idx">04</p>
+      <div>
+        <h2 class="band-title">Method</h2>
+        <p class="band-note">How I approach a problem I have not seen before. Written down because saying it out loud is how a team can hold me to it.</p>
+      </div>
+    </div>
+    <ol class="method">
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Start simple. Correctness first.</h3>
+        <p>Describe the simplest thing that is actually correct before discussing anything faster. It is the baseline every later argument is measured against, and often it is enough.</p>
+      </div></div></li>
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Make assumptions explicit.</h3>
+        <p>Most architectural disagreements are two people reasoning correctly from different unstated premises. Say the premise and the disagreement usually resolves itself.</p>
+      </div></div></li>
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Think in invariants.</h3>
+        <p>Name the property that must hold no matter what happens: what is unique, what is ordered, what is idempotent, what is allowed to be stale. Designs are easier to check against an invariant than against a diagram.</p>
+      </div></div></li>
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Find the bottleneck before reaching for a pattern.</h3>
+        <p>Trace a small example, state the simple approach, identify what actually limits it, and only then choose the technique that removes that limit. A pattern applied before the bottleneck is known is decoration.</p>
+      </div></div></li>
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Sophistication is not complexity.</h3>
+        <p>The sophisticated solution is usually the one with fewer moving parts and clearer boundaries. Complexity that impresses in review is complexity somebody pages at 3am.</p>
+      </div></div></li>
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Elevate only after solving.</h3>
+        <p>Solve the system problem first. Then ask whether it is really a platform problem, and then whether it is really an organizational one. Skipping straight to the org answer is how architecture astronauts are made.</p>
+      </div></div></li>
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>The stated problem is the problem.</h3>
+        <p>Challenge an assumption only once I can name the evidence and its impact. Reframing a brief because it is more interesting my way is a failure mode, not seniority.</p>
+      </div></div></li>
+    </ol>
+  </section>
+
+  <!-- ============ 05 open source ============ -->
+  <section class="band" id="open-source">
+    <div class="row">
+      <p class="idx">05</p>
+      <div>
+        <h2 class="band-title">Open source</h2>
+        <p class="band-note">Side projects, all of them. They are where I test ideas at full scale before I recommend them to anyone, and where I get to work under constraints my day job does not provide.</p>
+      </div>
+    </div>
+
+    <div class="proj-lead reveal">
+      <div>
+        <h3><a href="https://github.com/rafaelromao/sandman">Sandman</a></h3>
+        <p class="tagline">Sleep while your agents code.</p>
+        <p>An orchestrator for autonomous coding agents. It pulls issues from GitHub, renders them through prompt templates, and runs each agent inside an isolated sandbox, a git worktree or a container, with dependency-aware parallel scheduling and a local portal for watching the runs.</p>
+        <p>It exists because agentic engineering needs the same things any delivery process needs: a clear specification, an isolated execution boundary, an event log, verification, and a human review gate. Sandman is the argument made concrete. Released at v1.0.0 with a changelog, a security policy and a release pipeline, because a tool that asks you to trust it with your repository should look like it can be trusted.</p>
+      </div>
+      <figure class="proj-figure" aria-hidden="true">
+<pre><span class="c">$</span> sandman run <span class="k">--issues</span> 412,415,418
+<span class="c">┌─</span> plan
+<span class="c">│</span>  412  add retry budget      <span class="k">ready</span>
+<span class="c">│</span>  415  extract rate limiter   <span class="k">ready</span>
+<span class="c">│</span>  418  wire limiter into api  <span class="c">blocked by 415</span>
+<span class="c">└─</span> 2 parallel, 1 queued
+
+<span class="c">┌─</span> run
+<span class="c">│</span>  412  worktree  <span class="k">✓</span> tests  <span class="k">✓</span> review pending
+<span class="c">│</span>  415  worktree  <span class="k">✓</span> tests  <span class="k">✓</span> review pending
+<span class="c">│</span>  418  queued    → starts when 415 merges
+<span class="c">└─</span> portal http://localhost:7777
+</pre>
+      </figure>
+    </div>
+
+    <ul class="projects">
+      <li class="reveal">
+        <h4 class="proj-name"><a href="https://github.com/rafaelromao/zmk-vim-mode">zmk-vim-mode</a></h4>
+        <p class="proj-meta">Go, Lua, C &middot; ZMK firmware</p>
+        <p>Makes a keyboard aware of the editor's real Vim mode. The host has no channel for telling a keyboard anything, so this repurposes three HID indicator bits no operating system ever sets, Compose, Kana and Scroll Lock, as a three-bit data bus. Works over USB and Bluetooth on stock ZMK. A host daemon, a Neovim plugin and a firmware module, plus the timing rules that keep it correct during fast typing.</p>
+      </li>
+      <li class="reveal">
+        <h4 class="proj-name"><a href="https://github.com/rafaelromao/zmk-layer-morph">zmk-layer-morph</a></h4>
+        <p class="proj-meta">C, devicetree &middot; ZMK firmware</p>
+        <p>A ZMK behaviour that morphs a keypress into a different binding when any of a named set of layers is active. Small, focused, and load-bearing: it is what makes a single keymap serve both macOS and Linux base layers without duplicating every key.</p>
+      </li>
+      <li class="reveal">
+        <h4 class="proj-name"><a href="https://github.com/rafaelromao/layoutmaster">layoutmaster</a></h4>
+        <p class="proj-meta">TypeScript &middot; Browser, no server</p>
+        <p>A keyboard layout analyzer that simulates how a corpus is actually typed: one-shot and momentary layers, adaptive keys, combos, caps word, and only then the usual metrics over the resulting key stream. Rewritten from a complete Elixir implementation, with a golden suite asserting the two engines agree to within 1e-6 and documenting every deliberate divergence.</p>
+      </li>
+      <li class="reveal">
+        <h4 class="proj-name"><a href="https://github.com/rafaelromao/keyboards">keyboards</a></h4>
+        <p class="proj-meta">Devicetree, shell &middot; ZMK firmware</p>
+        <p>My split keyboard configuration, tuned for Portuguese, English, numbers and programming with Vim. Built from a containerized toolchain and git submodules rather than hosted CI, so a firmware build is reproducible on any machine and offline.</p>
+      </li>
+      <li class="reveal">
+        <h4 class="proj-name"><a href="https://github.com/rafaelromao/romak">romak</a></h4>
+        <p class="proj-meta">Layout research</p>
+        <p>A keyboard layout for people who write both Portuguese and English, optimizing for hand alternation and against same-finger bigrams, pinky load and centre-column reaches. Published with the comparative analyses against a dozen existing layouts that justify each decision.</p>
+      </li>
+      <li class="reveal">
+        <h4 class="proj-name"><a href="https://github.com/rafaelromao/wayland-setleds">wayland-setleds</a></h4>
+        <p class="proj-meta">C &middot; Linux</p>
+        <p>A library and CLI for controlling keyboard LEDs through evdev on Wayland, X11, the console or over SSH. Compositor-agnostic and rootless, which is the whole point: the classic <code>setleds</code> predates Wayland and assumes a virtual terminal.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ 06 writing ============ -->
+  <section class="band" id="writing">
+    <div class="row">
+      <p class="idx">06</p>
+      <div>
+        <h2 class="band-title">Writing</h2>
+      </div>
+    </div>
+
+    <div class="blog-plug reveal">
+      <div>
+        <h3>The blog</h3>
+        <p>A weekly essay on the Staff+ engineering role: scope and leverage, architectural decision-making, coupling and module design, distributed systems, running what you build, and working alongside machines.</p>
+      </div>
+      <p class="actions"><a class="btn btn-primary" href="/blog/">Read at /blog</a></p>
+    </div>
+
+    <ol class="writing">
+      <li><div class="rail reveal">
+        <p class="where">Whitepaper</p>
+        <div>
+          <h3><a href="http://info.avenuecode.com/microservices-architecture-whitepaper">Microservices Architecture as a Large-Scale Refactoring Tool</a></h3>
+          <p class="sum">Treating a migration to microservices as a refactoring problem rather than a rewrite, and what that changes about sequencing and risk.</p>
+        </div>
+      </div></li>
+      <li><div class="rail reveal">
+        <p class="where">Medium</p>
+        <div>
+          <h3><a href="https://medium.com/@rmromao/how-to-pass-the-ocp-java-se-11-certification-9e861bc11fd1">How to pass the OCP Java SE 11 certification</a></h3>
+          <p class="sum">The study method behind a deliberate mid-career platform switch, written down while it was still fresh.</p>
+        </div>
+      </div></li>
+      <li><div class="rail reveal">
+        <p class="where">Paper &middot; pt</p>
+        <div>
+          <h3>Melhorando a eficiência no desenvolvimento de software através da aplicação de técnicas de Especificação por Exemplo</h3>
+          <p class="sum">Specification by example as a way to shorten the loop between what was asked for and what was built.</p>
+        </div>
+      </div></li>
+      <li><div class="rail reveal">
+        <p class="where">Paper &middot; pt</p>
+        <div>
+          <h3>Um Estudo Comparativo das Linguagens Java e C#</h3>
+          <p class="sum">A comparative study of the two languages I would go on to spend most of my career alternating between.</p>
+        </div>
+      </div></li>
+    </ol>
+  </section>
+
+  <!-- ============ 07 credentials ============ -->
+  <section class="band" id="credentials">
+    <div class="row">
+      <p class="idx">07</p>
+      <div>
+        <h2 class="band-title">Credentials</h2>
+      </div>
+    </div>
+    <div class="creds">
+      <div>
+        <h3>Education</h3>
+        <ul class="cred-list">
+          <li><span class="name">Strategies in Software Architecture</span><span class="sub nums">IGTI &middot; 2012 &ndash; 2013</span></li>
+          <li><span class="name">Big Data Specialization</span><span class="sub nums">University of California, San Diego &middot; 2016 &ndash; 2017</span></li>
+          <li><span class="name">System Analysis</span><span class="sub nums">Universidade Federal de Minas Gerais &middot; 2007 &ndash; 2008</span></li>
+          <li><span class="name">Licentiate degree, Mathematics</span><span class="sub nums">Universidade Federal de Minas Gerais &middot; 2003 &ndash; 2007</span></li>
         </ul>
       </div>
-    </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
-      <div class="w-100">
-        <h2 class="mb-5">Certifications</h2>
-        <ul class="fa-ul mb-0">
-          <li>
-            <i id="javase11" class="fa-li fa fa-trophy text-warning"></i>
-            <a target="window"
-              href="https://www.youracclaim.com/badges/1cd8accf-f872-40ae-875a-61887c6618d8/public_url">
-              Oracle Certified Professional: Java SE 11 Developer
-            </a>
-          </li>
+      <div>
+        <h3>Certifications</h3>
+        <ul class="cred-list">
+          <li><span class="name"><a href="https://www.credly.com/users/rafael-romao">Oracle Certified Professional, Java SE 11 Developer</a></span><span class="sub">Oracle</span></li>
+          <li><span class="name">Advanced Java</span><span class="sub">JetBrains Academy</span></li>
+          <li><span class="name">AWS Partner: Business Value Realization Essentials</span><span class="sub">Amazon Web Services</span></li>
+          <li><span class="name">TOEIC, Test of English for International Communication</span><span class="sub">ETS</span></li>
         </ul>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div>
+      <h2>Let's talk.</h2>
+      <p>Always glad to talk about distributed systems, developer platforms, or agentic engineering with anyone who finds them as interesting as I do.</p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="mailto:rafaelromao@gmail.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/rafaelromao" rel="me noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/rafaelromao" rel="me noopener">GitHub</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="https://www.credly.com/users/rafael-romao" rel="noopener">Credly</a></li>
+      <li><a href="https://goodreads.com/rafaelromao" rel="me noopener">Goodreads</a></li>
+    </ul>
   </div>
+  <div class="colophon">
+    <p>Belo Horizonte, Brazil</p>
+    <p>Set in Literata and Libre Franklin. Hand-written HTML, no build step. <a href="https://github.com/rafaelromao/rafaelromao.github.io">Source</a>.</p>
+  </div>
+</footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/resume.min.js"></script>
-
+<script src="assets/site.js" defer></script>
 </body>
-
 </html>
