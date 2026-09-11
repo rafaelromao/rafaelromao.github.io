@@ -65,7 +65,7 @@
     <a href="#systems">Systems</a>
     <a class="opt" href="#method">Method</a>
     <a href="#open-source">Open source</a>
-    <a class="opt" href="#writing">Writing</a>
+    <a href="/story/">Story</a>
     <a class="is-blog" href="/blog/">Blog</a>
   </nav>
   <button class="theme-btn" type="button" id="theme" aria-label="Switch between light and dark">
@@ -108,7 +108,7 @@
   <figure class="chart-wrap">
     <div class="chart-scroll">
       <svg class="chart" viewBox="0 0 900 300" role="img"
-           aria-label="Two timelines from 1997 to 2026. The upper one steps up through five levels of scope: computer technician from 1997, engineer from 2002, architect and senior individual contributor from 2009, principal from 2020, director from 2021. The lower one shows working languages: Delphi from 1999 to 2011, Java in 2003 and again from 2019 to today, C# from 2007 to 2020, Go from 2025 to today.">
+           aria-label="Two timelines from 1997 to 2026. The upper one steps up through five levels of scope: computer technician from 1997, engineer from 2002, architect and senior individual contributor from 2009, principal from 2020, director from 2021. The lower one shows what the work was built on: Delphi from 1999 to 2011, Java in 2003 and again from 2019 to today, C# from 2007 to 2020, and agentic engineering from 2025 to today.">
         <desc>The same history is written out in full in the career ledger below.</desc>
 
         <!-- five-year grid -->
@@ -144,7 +144,7 @@
           <text x="126" y="189">Delphi</text>
           <text x="126" y="211">Java</text>
           <text x="126" y="233">C# / .NET</text>
-          <text x="126" y="255">Go</text>
+          <text x="126" y="255">Agentic Engineering</text>
         </g>
         <g>
           <rect class="lang" x="187.2" y="180" width="301.9" height="11" rx="1.5"/>
@@ -165,8 +165,14 @@
         </g>
       </svg>
     </div>
-    <figcaption class="chart-key">Scope over time, and the languages underneath it. The gap in the Java row is real: a J2EE course in 2003, then sixteen years of Delphi and C# before coming back to the platform deliberately in 2019.</figcaption>
+    <figcaption class="chart-key">Scope over time, and what the work was built on underneath it. The last row is not a language: since 2025 the build tool has been agentic engineering, across whichever language the problem called for. The gap in the Java row is real too, a J2EE course in 2003, then sixteen years of Delphi and C# before coming back to the platform deliberately in 2019.</figcaption>
   </figure>
+
+  <!-- ============ signature statement ============ -->
+  <section class="statement reveal">
+    <blockquote>I had been building microservices for a year before I learned the word.</blockquote>
+    <p class="after">In 2012 a CTO asked for a platform of small backend services exchanging results over a fast message bus. He had tried twice before without it landing. I built it because the monolith underneath kept tearing along the same seam, not because I had read that I should. The article that named the pattern came out the following year. <strong>I still prefer arriving in that order:</strong> from the bottleneck to the pattern, never the reverse.</p>
+  </section>
 
   <!-- ============ 01 now ============ -->
   <section class="band" id="now">
@@ -179,6 +185,13 @@
           <p>The thread through all of it is <strong>engineering leverage</strong>. Simplify systems and workflows. Draw architectural boundaries that hold. Shorten feedback loops. Give engineers what they need to decide well on their own.</p>
           <p>Most recently I have been applying that to <strong>agentic engineering</strong>: how autonomous coding agents fit inside a disciplined delivery process through clear specifications, isolated execution, observability, verification, and human review. I build the tools to test the idea before recommending it to anyone, which is where <a href="https://github.com/rafaelromao/sandman">Sandman</a> came from.</p>
           <p>The title on the org chart has changed several times. The work I care about has not: system boundaries, data paths, failure modes, and what a team can safely change next.</p>
+        </div>
+        <div class="story-plug">
+          <div>
+            <h3>How I got here</h3>
+            <p>A borrowed Delphi book in 1998, a page of phone numbers in 2002, a concurrency primitive I had no business writing in 2007, and an architecture that turned out to have a name. Twelve chapters, including the ones that went badly.</p>
+          </div>
+          <p class="actions"><a class="btn" href="/story/">Read the long version</a></p>
         </div>
       </div>
     </div>
@@ -324,7 +337,7 @@
       <p class="idx">03</p>
       <div>
         <h2 class="band-title">Systems</h2>
-        <p class="band-note">Client work is described at the level of the engineering problem. No customer names, no proprietary detail, no numbers I cannot stand behind.</p>
+        <p class="band-note">Client work is described at the level of the engineering problem. No customer names, no proprietary detail, no numbers I cannot stand behind. Where the decision is the interesting part, I have written down what I rejected and what it cost, not only what I chose.</p>
       </div>
     </div>
     <ol class="systems">
@@ -346,6 +359,13 @@
             <h3>Retail production planner</h3>
             <p>A planning application with a spreadsheet-like interface over a large mathematical model, held to an interactive editing budget measured in milliseconds. Meeting it meant treating the calculation as a data-layout problem rather than a code-optimization problem: an in-memory, array-oriented model, results precomputed and versioned in object storage, and careful choices about what to invalidate and when.</p>
             <p>Three years hands-on, including the deployment path and the build pipeline, leading a self-managed team of up to eight senior engineers.</p>
+            <dl class="decision">
+              <div><dt>Constraint</dt><dd>An edit had to feel instant over a large mathematical model, against a budget measured in milliseconds.</dd></div>
+              <div><dt>Rejected</dt><dd>Making the existing calculation faster where it stood. At that budget the thing that mattered was how data was laid out and reused, not how tight the arithmetic was.</dd></div>
+              <div><dt>Chose</dt><dd>An in-memory, array-oriented model, results precomputed and versioned as Protocol Buffers in object storage, and an explicit rule for which version a read sees.</dd></div>
+              <div><dt>Traded</dt><dd>Memory, and a rebuild cost every time the shape of the model changed.</dd></div>
+              <div><dt>Today</dt><dd>I would settle the invalidation rules before the data model rather than after. That is the part we kept coming back to.</dd></div>
+            </dl>
             <ul class="stack"><li>C#</li><li>In-memory modelling</li><li>Protocol Buffers</li><li>Blue-green deploys</li><li>Performance</li></ul>
           </div>
         </div>
@@ -357,6 +377,13 @@
             <h3>Smart grid platform and Reactive Services</h3>
             <p>Management software for electric utilities, and the research that came out of it. Working across the lifecycle of a long-lived product made the coupling costs obvious, so in 2012 I built <a href="https://reactiveservices.github.io">Reactive Services</a>: a message-bus abstraction with a RabbitMQ adapter, an authorization model, and opinions about service boundaries and message contracts.</p>
             <p>Martin Fowler's microservices article landed the following year and gave the pattern its name. Getting there independently, from the pain rather than from the literature, is still how I prefer to arrive at an architecture.</p>
+            <dl class="decision">
+              <div><dt>Constraint</dt><dd>A platform of individual backend applications, each doing one job, exchanging results over a fast bus. Two earlier attempts inside the company had not landed.</dd></div>
+              <div><dt>Rejected</dt><dd>Letting the services share a database. It would have made them one deployable again wearing several names, which is how the earlier attempts had collapsed.</dd></div>
+              <div><dt>Chose</dt><dd>Messages as the only contract between services, over a bus abstraction with a RabbitMQ adapter and an authorization model, with boundaries a single team could hold in its head.</dd></div>
+              <div><dt>Traded</dt><dd>Local simplicity. Every former method call became a message that can arrive late, twice, or never, and each one had to be designed for that.</dd></div>
+              <div><dt>Today</dt><dd>The boundaries held up better than the framework I wrapped around them. I would write fewer abstractions and more contracts.</dd></div>
+            </dl>
             <ul class="stack"><li>Message bus</li><li>RabbitMQ</li><li>Service boundaries</li><li>.NET</li></ul>
           </div>
         </div>
@@ -376,7 +403,14 @@
           <p class="sys-when nums">2002 &ndash; 2011</p>
           <div>
             <h3>Laboratory automation and blood bank systems</h3>
-            <p>Nine years of regulated, safety-relevant software built with teams in Switzerland, France, the United States and the Caribbean. Instrument automation is where I learned concurrency properly: in 2007, on C# 2.0, I needed to compose asynchronous operations and the language had nothing for it, so I wrote a small task abstraction of my own. The Task Parallel Library arrived three years later and did it better, which was its own useful lesson.</p>
+            <p>Nine years of regulated, safety-relevant software built with teams in Switzerland, France, the United States and the Caribbean. Instrument automation is where I learned concurrency properly.</p>
+            <dl class="decision">
+              <div><dt>Constraint</dt><dd>Drive a set of motors in parallel from a simple desktop interface, on C# 2.0, three years before the Task Parallel Library existed.</dd></div>
+              <div><dt>Rejected</dt><dd>A thread per operation at every call site. Everyone on the team could write one; at the number we needed it would have been tedious and easy to get subtly wrong.</dd></div>
+              <div><dt>Chose</dt><dd>A small Task class that ran one operation on a background thread and could be composed, so the concurrency lived in one place instead of scattered through the code.</dd></div>
+              <div><dt>Traded</dt><dd>We now owned a concurrency primitive, and every bug in it was ours.</dd></div>
+              <div><dt>Today</dt><dd>.NET shipped the same idea in 2010 and did it better. Being three years early cost us maintenance, and taught me more about threads than any library would have.</dd></div>
+            </dl>
             <ul class="stack"><li>Delphi</li><li>C#</li><li>Concurrency</li><li>Regulated software</li><li>Distributed teams</li></ul>
           </div>
         </div>
@@ -459,12 +493,85 @@
       </figure>
     </div>
 
+    <div class="proj-feature reveal">
+      <h3><a href="https://github.com/rafaelromao/zmk-vim-mode">zmk-vim-mode</a></h3>
+      <p class="tagline">A side channel that was already there.</p>
+      <p>The keyboard should be in NORMAL when the editor is in normal mode. That needs the host to tell the keyboard something, and there is no standard channel for it: HID runs keyboard to host. Custom firmware protocols exist, but they mean pairing, a transport of your own, and a different answer for USB than for Bluetooth.</p>
+      <p>There is one exception. The <strong>output report</strong> is a single byte the host sends <em>to</em> the keyboard, to light the Caps Lock and Num Lock lamps. It works identically over USB and Bluetooth, needs no pairing, and stock ZMK already accepts it. Of its five indicator bits, three are dead: no operating system sets Compose, Kana or Scroll Lock on its own. Read together they are a 3-bit number, which is eight states, which is more than Vim has modes.</p>
+
+      <figure class="diagram-wrap">
+        <div class="diagram-scroll">
+          <svg class="diagram" viewBox="0 0 900 300" role="img"
+               aria-label="The editor state travels to the keyboard inside the HID output report, the byte that normally lights keyboard lamps. Of its five indicator bits, Num Lock and Caps Lock are left alone because the operating system owns them, while Scroll Lock, Compose and Kana are never set by any operating system and are read together as a three-bit number. Pressing i in Neovim sends code 2, which sets the Kana bit, making the byte 0x10, which the firmware decodes into the VIM_INSERT layer.">
+            <desc>The mechanism is described in full in the paragraphs above and below this diagram.</desc>
+
+            <text class="d-head" x="20" y="32">Host</text>
+            <text class="d-head" x="450" y="32" text-anchor="middle">HID output report &middot; one byte, host to keyboard</text>
+            <text class="d-head" x="880" y="32" text-anchor="end">Keyboard</text>
+
+            <rect class="d-box" x="20" y="70" width="170" height="104" rx="4"/>
+            <text class="d-lbl" x="105" y="99" text-anchor="middle">Neovim plugin</text>
+            <text class="d-small" x="105" y="116" text-anchor="middle">reports the real mode</text>
+            <line class="d-line" x1="40" y1="128" x2="170" y2="128"/>
+            <text class="d-lbl" x="105" y="150" text-anchor="middle">Go daemon</text>
+            <text class="d-small" x="105" y="166" text-anchor="middle">writes the byte</text>
+
+            <path class="d-flow" d="M196 122 H278"/>
+            <polygon class="d-accent" points="290,122 278,116 278,128"/>
+            <text class="d-small" x="240" y="142" text-anchor="middle">editor state</text>
+
+            <rect class="d-bit" x="290" y="96" width="56" height="52" rx="3"/>
+            <rect class="d-bit" x="356" y="96" width="56" height="52" rx="3"/>
+            <rect class="d-bit-free" x="422" y="96" width="56" height="52" rx="3"/>
+            <rect class="d-bit-free" x="488" y="96" width="56" height="52" rx="3"/>
+            <rect class="d-bit-free" x="554" y="96" width="56" height="52" rx="3"/>
+
+            <g class="d-mono" text-anchor="middle">
+              <text x="318" y="127">0x01</text>
+              <text x="384" y="127">0x02</text>
+              <text x="450" y="127">0x04</text>
+              <text x="516" y="127">0x08</text>
+              <text x="582" y="127">0x10</text>
+            </g>
+            <g class="d-small" text-anchor="middle">
+              <text x="318" y="166">Num</text>
+              <text x="384" y="166">Caps</text>
+              <text x="450" y="166">Scroll</text>
+              <text x="516" y="166">Compose</text>
+              <text x="582" y="166">Kana</text>
+            </g>
+
+            <path class="d-line" d="M290 184 V192 H412 V184"/>
+            <text class="d-small" x="351" y="210" text-anchor="middle">the OS owns these</text>
+            <text class="d-small" x="351" y="226" text-anchor="middle">left alone on purpose</text>
+
+            <path class="d-flow" d="M422 184 V192 H610 V184"/>
+            <text class="d-small d-accent" x="516" y="210" text-anchor="middle">no OS ever sets these</text>
+            <text class="d-small d-accent" x="516" y="226" text-anchor="middle">read as one 3-bit number, 8 states</text>
+
+            <path class="d-flow" d="M616 122 H692"/>
+            <polygon class="d-accent" points="704,122 692,116 692,128"/>
+            <text class="d-small" x="660" y="142" text-anchor="middle">USB or BLE</text>
+
+            <rect class="d-box" x="710" y="70" width="170" height="104" rx="4"/>
+            <text class="d-lbl" x="795" y="99" text-anchor="middle">ZMK module</text>
+            <text class="d-small" x="795" y="116" text-anchor="middle">tests three bits</text>
+            <line class="d-line" x1="730" y1="128" x2="860" y2="128"/>
+            <text class="d-lbl" x="795" y="150" text-anchor="middle">layer set</text>
+            <text class="d-small" x="795" y="166" text-anchor="middle">a bitmask change</text>
+
+            <line class="d-line" x1="20" y1="252" x2="880" y2="252"/>
+            <text class="d-head" x="20" y="276">Pressing i in Neovim</text>
+            <text class="d-mono" x="250" y="277">code 2 &#8594; Kana bit set &#8594; byte 0x10 &#8594; VIM_INSERT</text>
+          </svg>
+        </div>
+        <figcaption class="figure-note">The lamps never light: without an indicator-LED node in the keymap, nothing physically turns on. It is a silent channel that happens to travel on the LED wire.</figcaption>
+      </figure>
+
+      <p>The part I find more interesting than the trick is what it takes to make it survive real typing. The keyboard keeps its own local inference and the host only corrects it, which means a host message always describes the editor as of an earlier keystroke. Two rules reconcile them: a <strong>60 ms hold-off</strong> before believing a zero, because the kernel zeroes the whole byte whenever it sends its own lamp update, and a <strong>150 ms guard</strong> after any keyboard-driven change, so a stale in-flight message cannot undo a correct local one. The keyboard wins in motion, the host wins at rest.</p>
+    </div>
+
     <ul class="projects">
-      <li class="reveal">
-        <h4 class="proj-name"><a href="https://github.com/rafaelromao/zmk-vim-mode">zmk-vim-mode</a></h4>
-        <p class="proj-meta">Go, Lua, C &middot; ZMK firmware</p>
-        <p>Makes a keyboard aware of the editor's real Vim mode. The host has no channel for telling a keyboard anything, so this repurposes three HID indicator bits no operating system ever sets, Compose, Kana and Scroll Lock, as a three-bit data bus. Works over USB and Bluetooth on stock ZMK. A host daemon, a Neovim plugin and a firmware module, plus the timing rules that keep it correct during fast typing.</p>
-      </li>
       <li class="reveal">
         <h4 class="proj-name"><a href="https://github.com/rafaelromao/zmk-layer-morph">zmk-layer-morph</a></h4>
         <p class="proj-meta">C, devicetree &middot; ZMK firmware</p>

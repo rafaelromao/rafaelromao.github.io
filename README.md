@@ -6,13 +6,14 @@ Career page for Rafael Romão, served by GitHub Pages at
 Hand-written HTML and CSS. No framework, no build step, no dependencies.
 
 ```
-index.html          the page
-assets/site.css     design tokens and layout
+index.html          the short version: the case, in about 90 seconds
+story/index.html    the long version: twelve chapters of career narrative
+assets/site.css     design tokens and layout, shared by both pages
 assets/site.js      theme toggle and scroll reveals
 assets/favicon.svg
-img/rafael.jpg      portrait, 720px, metadata stripped
+img/rafael.jpg      portrait, 400px square, metadata stripped
 robots.txt          points crawlers at both sitemaps
-sitemap.xml         this page; the blog ships its own
+sitemap.xml         the two pages here; the blog ships its own
 blog/               published from a separate repository, do not edit here
 ```
 
