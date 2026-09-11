@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The long version — Rafael Romão</title>
+<meta name="description" content="Twenty-eight years of writing software, told as sixteen chapters: a borrowed Delphi book, the yellow pages, a Task class three years before the Task Parallel Library, and a message bus that had a name before I knew it.">
+<meta name="author" content="Rafael Romão">
+<link rel="canonical" href="https://rafaelromao.github.io/story/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="The long version — Rafael Romão">
+<meta property="og:description" content="Twenty-eight years of writing software, told as sixteen chapters.">
+<meta property="og:url" content="https://rafaelromao.github.io/story/">
+<meta property="og:image" content="https://rafaelromao.github.io/img/rafael.jpg">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f9f7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1b26" media="(prefers-color-scheme: dark)">
+
+<script>
+  document.documentElement.classList.add('js');
+  try {
+    var t = localStorage.getItem('kb-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <a class="masthead-title" href="/">
+    <img class="rail-portrait" src="../img/rafael.jpg" alt="" width="400" height="400" loading="eager" decoding="async">
+    <span class="rail-name">Rafael Romão</span>
+    <span class="rail-role">Director of Technology &middot; Belo Horizonte</span>
+  </a>
+  <div class="rail-scroll">
+  <nav class="masthead-nav" aria-label="Sections">
+    <a href="/">The short version</a>
+    <!-- BLOG: hidden until the first article publishes. Restore by deleting this comment wrapper.
+    <a class="is-blog" href="/blog/">Blog</a>
+    -->
+  </nav>
+  <nav class="chapters-nav" aria-label="Chapters">
+    <a href="#borrowed-book"><span class="y nums">1998</span>A borrowed book</a>
+    <a href="#yellow-pages"><span class="y nums">2002</span>The yellow pages</a>
+    <a href="#the-mess"><span class="y nums">2002</span>The mess</a>
+    <a href="#joy-of-objects"><span class="y nums">2003</span>The joy of objects</a>
+    <a href="#going-international"><span class="y nums">2007</span>Going international</a>
+    <a href="#tasks-before-tpl"><span class="y nums">2007</span>Tasks, three years early</a>
+    <a href="#architect"><span class="y nums">2009</span>Architect, for the first time</a>
+    <a href="#big-change"><span class="y nums">2011</span>Time for a big change</a>
+    <a href="#the-word-came-later"><span class="y nums">2012</span>The word came later</a>
+    <a href="#a-step-back"><span class="y nums">2015</span>A step back</a>
+    <a href="#a-step-forward"><span class="y nums">2016</span>A step forward</a>
+    <a href="#back-to-java"><span class="y nums">2019</span>Back to Java</a>
+    <a href="#the-multiplier"><span class="y nums">2020</span>The multiplier</a>
+    <a href="#other-side"><span class="y nums">2021</span>The other side of the desk</a>
+    <a href="#forty-keys"><span class="y nums">2022</span>Forty keys</a>
+    <a href="#agentic-engineering"><span class="y nums">2025</span>Agentic engineering</a>
+  </nav>
+  </div>
+  <div class="rail-foot">
+    <ul class="rail-social">
+      <li><a href="mailto:rafaelromao@gmail.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/rafaelromao" rel="me noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/rafaelromao" rel="me noopener">GitHub</a></li>
+    </ul>
+  </div>
+  <button class="theme-btn" type="button" id="theme" aria-label="Switch between light and dark">
+    <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.4 12h2.2M19.4 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+    <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
+  </button>
+</header>
+
+<main id="main">
+  <section class="story-intro">
+    <a class="back" href="/">&larr; Back to the short version</a>
+    <h1>The long version.</h1>
+    <p class="deck">Twenty-eight years, told as sixteen chapters. A borrowed book, a page of phone numbers, a concurrency primitive I had no business writing, and an architecture that turned out to have a name. I have kept the parts that taught me something, including the ones that went badly.</p>
+  </section>
+
+  <ol class="chapters">
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">1998<span class="n">01</span></p>
+        <div>
+          <h2 id="borrowed-book">A borrowed book</h2>
+          <p>I was sixteen and working as a storekeeper's assistant. What I knew about computers was Windows 3.1 and 95, Word, Excel and MS-DOS, from the kind of computing course pack everyone in Brazil took at the time. Then a friend lent me a book about Delphi 3.</p>
+          <p>I started going into the office in my spare time to use my boss's computer, working through the examples and then writing small programs that automated bits of our own work: stock lists, simple reports, anything with a form and a table behind it. My boss noticed he was getting free software and told me I could use as much spare time on that machine as I wanted. I do not think either of us understood what kind of arrangement we had made.</p>
+          <p class="landing"><b>What it taught me</b>Nobody gave me permission to become a programmer, and nobody was going to. The useful move was to find a real problem near me and solve it badly, then less badly.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2002<span class="n">02</span></p>
+        <div>
+          <h2 id="yellow-pages">The yellow pages</h2>
+          <p>Four years of that and I decided it was time for a real job. A friend who wrote Clipper told me I was already good enough, which I did not believe but wanted to. I was twenty.</p>
+          <p>So I got the yellow pages and wrote down the name and number of every software company in Belo Horizonte. It was not a long list. Then I called each one, said I wanted to apply for a programmer position, and asked for an email address to send my CV to.</p>
+          <p class="pull">It was a sassy thing to do, and it worked.</p>
+          <p>By May 2002 I was a software developer at a company with clients in Brazil and Switzerland. The thing that got me through the door was not the Delphi. It was that I had been teaching myself English since 1999, purely to read what people wrote about Delphi on the early Internet. English was the working written language from my first day.</p>
+          <p class="landing"><b>What it taught me</b>The skill that opened the door was the one I had picked up sideways, for my own reasons, with no career plan attached to it. That has happened to me more than once since.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2002<span class="n">03</span></p>
+        <div>
+          <h2 id="the-mess">The mess</h2>
+          <p>I remember opening the codebase on my first job and thinking: this is far more complicated than I expected, and I have a very long way to go before I am as good as these people.</p>
+          <p>That code was just messy. Structured-programming habits carried into a language that had moved on, a years-old Delphi desktop application being dragged from DBase to Paradox. I was not able to tell the difference between complicated and badly organised until years later.</p>
+          <p>The senior developer told me not to touch the other project, the one for the international client, until he said so. That took about two years.</p>
+          <p class="landing"><b>What it taught me</b>Junior engineers cannot yet tell essential complexity from accidental mess, so they assume the mess is their own ignorance. I try to name which one a new engineer is looking at, because nobody did that for me and it cost me two years of unnecessary doubt.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2003<span class="n">04</span></p>
+        <div>
+          <h2 id="joy-of-objects">The joy of objects</h2>
+          <p>Delphi 7 had some object orientation, but not all of it. In 2003 I got onto a Java course, J2EE on Java 1.3, and finally saw the ideas I had been reading about actually working.</p>
+          <p>I disliked J2EE itself. It had a strong do-it-exactly-this-way character that I have distrusted in frameworks ever since. But objects in practice, after years of objects in theory, were a revelation, and not only to me. Within weeks our Delphi code started sprouting camelCase method names. We regretted that fairly quickly.</p>
+          <p class="landing"><b>What it taught me</b>A team that has just learned something will import it wholesale, including the parts that do not belong. Enthusiasm is not judgement, and the gap between them is where conventions go to die.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2007<span class="n">05</span></p>
+        <div>
+          <h2 id="going-international">Going international</h2>
+          <p>I spent those years mostly on blood bank management systems, which meant learning a regulated domain where being wrong has a physical consequence, and starting to form idioms of my own. I was now senior enough to make my own mess rather than inherit someone else's, and to learn from that instead.</p>
+          <p>As demand from the international client grew, my English, at that point still only reading and writing, got me onto their team. In 2007 I flew to Europe to work on site. It was my first experience of a team spread across regions, and it set the direction of everything that came afterwards.</p>
+          <p class="landing"><b>What it taught me</b>Distance does not just slow communication down, it changes which kinds of decisions are affordable. You stop making the ones that need everyone in a room, and start designing so that fewer of them are needed.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2007<span class="n">06</span></p>
+        <div>
+          <h2 id="tasks-before-tpl">Tasks, three years early</h2>
+          <p>The client was building a new laboratory robot and we had to write the software driving it. Another team's attempt in Java had gone badly and Delphi was visibly ageing, so we chose the shiny new C# 2.0. The tool had a simple interface and had to drive a set of motors in parallel.</p>
+          <p>Everyone on the team could write a thread. At the number of concurrent operations we needed, writing them one at a time at every call site would have been tedious and quietly error-prone. So I wrote a small <code>Task</code> class: one operation, one background thread, composable, with the concurrency in one place instead of smeared through the application.</p>
+          <p>The Task Parallel Library shipped with .NET 4 in 2010 and did the same thing properly. I was pleased they called it Task, rather than Future as Oxygene and Java had.</p>
+          <p class="landing"><b>What it taught me</b>Being early is not the same as being right. We owned a concurrency primitive for three years and every bug in it was ours. I would make the same call again, and I now ask out loud how long we expect to carry a thing before we build it.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2009<span class="n">07</span></p>
+        <div>
+          <h2 id="architect">Architect, for the first time</h2>
+          <p>A big new contract, a large system, a large team, and the first time the title was actually mine. My job was to say how the software would be structured and to build the foundations the team would deliver on. Our first real move to web services in the backend.</p>
+          <p>The part I cared most about was not the module structure, though a replicable one is what made new features cheap. Delphi succeeded in the 2000s largely because its component libraries and drag-and-drop model made ordinary work fast, and I had been writing VCL extensions since I started. Here I got to write an entire client-side component library over our RemObjects services, an alternative to their Data Abstract.</p>
+          <p>GitHub did not exist yet in any way that mattered to us. That library is almost certainly gone.</p>
+          <p class="landing"><b>What it taught me</b>Work that is not published does not survive, no matter how good it was. It is one reason nearly everything I build now is in the open, even the small things.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2011<span class="n">08</span></p>
+        <div>
+          <h2 id="big-change">Time for a big change</h2>
+          <p>Nine years at one company accumulates a particular kind of tiredness. Everything I had built so far was desktop software, Delphi or WPF, and the web had long since become where things happened. Web Forms was giving way to MVC, jQuery had made single-page applications thinkable. The conclusion was not subtle: learn web development or become unmarketable.</p>
+          <p>Up to then I had learned almost entirely from blog posts and forums. This was when I started reading books properly: Clean Code, HTML5 and CSS3, jQuery, ASP.NET MVC 3, test-driven development.</p>
+          <p>Then someone I had never met called to ask whether I was the WPF developer who had been recommended on a forum. I still do not know who recommended me. I took the job, and it was WPF again. The move to the web did not happen for years. What did happen was that I became a person who reads.</p>
+          <p class="landing"><b>What it taught me</b>The plan was wrong and the habit was right. I did not become a web developer that year; I became someone who learns from primary sources, which turned out to matter far more.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2012<span class="n">09</span></p>
+        <div>
+          <h2 id="the-word-came-later">The word came later</h2>
+          <p>Two years into geographic information systems in WPF, the CTO called us into a kickoff. He wanted his dream platform: individual backend applications, each responsible for one job, passing results to each other over a fast message bus. He was excited and also frustrated, because it was his third attempt.</p>
+          <p>I asked him to give me the job. He did.</p>
+          <p>It was my first large backend system and the results were not as good as they could have been. It was research and development, and by that standard it worked. One thing that came out of it was <a href="https://reactiveservices.github.io">Reactive Services</a>: a message-bus abstraction with a RabbitMQ adapter, an authorization model, and opinions about where service boundaries belong. I did not put it on GitHub until years later, but it was written in 2012.</p>
+          <p class="pull">Martin Fowler's article named the pattern the following year.</p>
+          <p>I had not read my way to that architecture. I had been pushed into it by a monolith that kept tearing along the same seam. Docker and Spring Boot were becoming interesting around the same time; today the whole stack has names and a literature and Kubernetes underneath it.</p>
+          <p class="landing"><b>What it taught me</b>I trust an architecture I arrived at from a bottleneck more than one I arrived at from an article. A pattern adopted before you can name the pain it removes is just decoration that is expensive to remove later.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2015<span class="n">10</span></p>
+        <div>
+          <h2 id="a-step-back">A step back</h2>
+          <p>I was working as an architect and team lead when a better-shaped opportunity appeared elsewhere: leading a team, in the setting I thought I wanted. I took it. By the time I started, the leadership position had evaporated. There was a job for me, but as an ordinary programmer. No team, no architecture to own.</p>
+          <p>It turned out to be a gift. I had the salary I wanted, I was writing code all day, which is the part I love, and none of the weight. I also knew exactly how it would end. I was being paid for a role I was not performing, and less than a year later I was let go.</p>
+          <p class="landing"><b>What it taught me</b>A mismatch between what you are paid for and what you actually do is not a comfortable secret, it is a countdown. I would rather renegotiate the title early than enjoy the gap while it lasts.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2016<span class="n">11</span></p>
+        <div>
+          <h2 id="a-step-forward">A step forward</h2>
+          <p>I had been getting ready for this for a while. My English was there. My algorithms were not: I had not studied computer science, and self-teaching plus a mathematics degree leaves gaps that any serious international interview will find. So I closed them deliberately, with Sedgewick's Coursera course, CLRS, and a book on interview technique.</p>
+          <p>The surprise was that the mathematics degree, which I had half filed away as unrelated, turned out to be the qualification that mattered. The role needed heavy numerical work and optimisation.</p>
+          <p>A position opened a week after I was let go. I got the consulting job, and within a year I was a reference point for colleagues again.</p>
+          <p class="landing"><b>What it taught me</b>I could name my weakness precisely, which made it a study plan instead of an anxiety. Vague self-doubt is unfixable; a named gap has a reading list.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2019<span class="n">12</span></p>
+        <div>
+          <h2 id="back-to-java">Back to Java</h2>
+          <p>From 2012 onwards I worked mostly in C# and .NET on the backend. But most of the books I was reading used Java, most of the operational work I touched sat in a Java ecosystem, and the market I wanted was not especially interested in .NET even after .NET Core. My last real contact with the language had been around Java 6.</p>
+          <p>There was also a plainer argument, and it is the one that actually moved me.</p>
+          <p class="pull">I could not defend the claim I was making about myself.</p>
+          <p>I was presenting as someone with judgement about software architecture while being a decade out of date on one of the two platforms I claimed to know. That is not a gap in a CV, it is a hole in an argument. So I closed it deliberately: certified on Java SE 11, then Spring properly. Hard study from mid-2019, comfortable and productive again by mid-2020.</p>
+          <p class="landing"><b>What it taught me</b>Choosing what to learn is a technical decision, and it deserves the same honesty as any other. The question was not which language I preferred. It was which claim about myself I could still support under questioning.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2020<span class="n">13</span></p>
+        <div>
+          <h2 id="the-multiplier">The multiplier</h2>
+          <p>A high-throughput messaging system for a client in insurance, where a dropped or duplicated message is not a retry, it is a business event somebody has to explain. I owned the architecture and led delivery, and stayed close to the parts that decide whether a system like that holds: delivery semantics, queueing under load, serialization cost, the security model around it.</p>
+          <p>What I remember is not the architecture. It is the week I realised I was spending most of my time in other people's problems rather than my own, and that this was not an interruption of the work but the work. I was attached to two teams as a technical multiplier. The distributed-systems bugs I helped chase were theirs. The practices we standardised for real-time systems were going to be used by people I would never meet.</p>
+          <p class="pull">The system shipped. The teams outlasted it.</p>
+          <p class="landing"><b>What it taught me</b>At some point your output stops being code and becomes other people's capability, which is uncomfortable because it never shows up in a diff. I had to learn to count a week as productive when the only artefact was that two engineers could now debug something without me.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2021<span class="n">14</span></p>
+        <div>
+          <h2 id="other-side">The other side of the desk</h2>
+          <p>Principal engineer first, setting technical direction on critical client work and helping shape how the company hired and trained. Then Director of Technology, which is a different job wearing a similar name: organisational priorities translated into technical programs, delivery, internal tools, engineer development, and pre-sales work for AI and cloud in North America.</p>
+          <p>The story I am most pleased with from these years is not a system. An intern arrived from a non-traditional background and would not have passed a conventional screen. We built an actual path: regular milestones, a senior engineer alongside, work that got harder on purpose, checkpoints where we said plainly how it was going. Billable within six months, converted to full time, and now a senior engineer who mentors other people.</p>
+          <p>I stayed in the room for the hard technical decisions, and I would not take a role that did not let me. But the decisions I could make by authority turned out to be the least interesting ones available.</p>
+          <p class="landing"><b>What it taught me</b>At this scope you are rarely choosing the answer. You are choosing which questions are cheap for other people to answer, which constraints they inherit, and what the default is when nobody is looking. That is leverage, and it is slower and less satisfying than being right in a meeting.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2022<span class="n">15</span></p>
+        <div>
+          <h2 id="forty-keys">Forty keys</h2>
+          <p>In 2022 I started building my own keyboards, and I have not really stopped: a split keyboard configuration tuned for Portuguese, English, numbers and programming with Vim, then <a href="https://github.com/rafaelromao/romak">a layout of my own</a> for people who write both languages, then firmware modules, then designing the hardware itself. Somewhere past two thousand commits.</p>
+          <p>People assume it is a hobby that happens to be near my job. It is closer to the opposite. Firmware is the most honest environment I work in. There is no room for a vague abstraction in a devicetree file, the memory budget is measured in kilobytes, and a keypress either resolves correctly in single-digit milliseconds or you feel it in your hands immediately. Nothing about being senior helps.</p>
+          <p class="pull">It is the smallest system I own end to end: hardware, firmware, host daemon, editor.</p>
+          <p>It is also the only place I still get to hold an entire system in my head at once, which is a thing I was doing daily twenty years ago and now have to go looking for.</p>
+          <p class="landing"><b>What it taught me</b>Seniority quietly removes you from the feedback loops that made you good. A constraint you chose yourself, with a physical consequence and no way to delegate it, is one of the few reliable ways to put yourself back in one.</p>
+        </div>
+      </article>
+    </li>
+
+    <li>
+      <article class="rail reveal">
+        <p class="ch-when nums">2025<span class="n">16</span></p>
+        <div>
+          <h2 id="agentic-engineering">Agentic engineering</h2>
+          <p>Since 2025, most of what I build personally is built with coding agents. That is a real change in how I work and I would rather be explicit about it than quietly impressive: <a href="https://github.com/rafaelromao/sandman">Sandman</a> is a tool for orchestrating them, and its implementation was itself largely agent-written. I am not presenting it as evidence of Go fluency. I am presenting it as evidence of what I think this practice needs.</p>
+          <p>Which is the same thing any delivery process has always needed. A clear specification. An isolated place to execute, so a mistake is contained. An event log, so you can reconstruct what happened. Verification that does not depend on the thing being verified. A human review gate. Sandman pulls issues from GitHub, renders them through prompt templates, and runs each agent in its own worktree or container with dependency-aware scheduling, because those are the shapes those requirements take when you make them concrete.</p>
+          <p>I built it before recommending any of this to an engineering organisation, on the principle that I would rather find a practice's sharp edges myself than watch a team find them on my advice.</p>
+          <p class="landing"><b>What it taught me</b>Agents change the cost of producing code. They do not change the cost of being wrong. Everything downstream of that, boundaries, contracts, verification, knowing which part of a system you cannot afford to guess at, gets more valuable rather than less. Twenty-eight years in, that is the most reassuring thing I have learned recently.</p>
+        </div>
+      </article>
+    </li>
+
+  </ol>
+
+  <section class="story-end">
+    <div>
+      <h2>That is the long version.</h2>
+      <p>The short version has the systems, the decisions behind them, and the open-source work. The blog is where I am still working things out.</p>
+    </div>
+    <p class="actions">
+      <a class="btn btn-primary" href="/">The short version</a>
+    </p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div>
+      <h2>Let's talk.</h2>
+      <p>Always glad to talk about distributed systems, developer platforms, or agentic engineering with anyone who finds them as interesting as I do.</p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="mailto:rafaelromao@gmail.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/rafaelromao" rel="me noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/rafaelromao" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.credly.com/users/rafael-romao" rel="noopener">Credly</a></li>
+      <li><a href="https://goodreads.com/rafaelromao" rel="me noopener">Goodreads</a></li>
+    </ul>
+  </div>
+  <div class="colophon">
+    <p>Belo Horizonte, Brazil</p>
+    <p>Set in Literata and Libre Franklin. Hand-written HTML, no build step. <a href="https://github.com/rafaelromao/rafaelromao.github.io">Source</a>.</p>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

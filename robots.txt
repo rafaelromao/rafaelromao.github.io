@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rafaelromao.github.io/sitemap.xml
+
+# Restore alongside the blog links once the first article publishes:
+# Sitemap: https://rafaelromao.github.io/blog/sitemap.xml
