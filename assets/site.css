@@ -74,14 +74,17 @@
 
 /* ---------- base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+/* No scroll-behavior on the root scroller: applied there it also smooths
+   wheel and keyboard scrolling, where queued animations fight the browser's
+   native momentum and the page suddenly accelerates. Anchor links get their
+   smooth motion from site.js instead, which leaves normal scrolling native. */
+html { -webkit-text-size-adjust: 100%; }
 /* Scale the whole design up once there is a sidebar and a desk-sized screen.
    Measure and spacing are in rem too, so characters per line stay put: this is
    a zoom, not a reflow. Media queries resolve rem against the initial 16px, so
    the breakpoint itself does not move. */
 @media (min-width: 64rem) { html { font-size: 112.5%; } }
 @media (min-width: 100rem) { html { font-size: 118.75%; } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   margin: 0;

@@ -78,6 +78,31 @@
   }, 1600);
 })();
 
+/* ---- smooth anchor scrolling ----
+   Kept off the root scroller on purpose (see site.css): there it also smooths
+   wheel and keyboard scrolling, where queued animations fight native momentum
+   and suddenly accelerate. Only explicit anchor clicks animate, and never for
+   visitors who prefer reduced motion. */
+(function () {
+  'use strict';
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.addEventListener('click', function (ev) {
+    if (ev.defaultPrevented || ev.button !== 0 ||
+        ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+    if (!a || a.classList.contains('skip')) return;
+    var id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+    ev.preventDefault();
+    target.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
+    try { history.pushState(null, '', '#' + id); } catch (e) {}
+  });
+})();
+
 /* ---- sidebar scrollspy ----
    Not an IntersectionObserver: "which section am I in" is a question about a
    single position, and one measurement answers it without ratio bookkeeping.
