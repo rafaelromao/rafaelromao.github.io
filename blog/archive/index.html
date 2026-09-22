@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f9f7f2">
+<title>Archive</title>
+<meta name="description" content="Every published article, grouped by track.">
+<meta name="author" content="Rafael Romao">
+<link rel="canonical" href="https://rafaelromao.github.io/blog/archive/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rafael Romao on Staff+ Engineering">
+<meta property="og:title" content="Archive">
+<meta property="og:description" content="Every published article, grouped by track.">
+<meta property="og:url" content="https://rafaelromao.github.io/blog/archive/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Archive">
+<meta name="twitter:description" content="Every published article, grouped by track.">
+<link rel="alternate" type="application/rss+xml" title="Rafael Romao on Staff+ Engineering" href="https://rafaelromao.github.io/blog/rss.xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23a8452c'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23fbf7ef'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../blog.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("kb-theme");
+      if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  })();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Blog", "name": "Rafael Romao on Staff+ Engineering", "description": "One essay a week on the work that starts where the job description ends.", "url": "https://rafaelromao.github.io/blog/", "author": {"@type": "Person", "name": "Rafael Romao", "url": "https://www.linkedin.com/in/rafaelromao/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <a class="masthead-title" href="../">Rafael Romao on Staff+ Engineering</a>
+  <nav class="masthead-nav" aria-label="Sections">
+    <a href="../archive/">Archive</a>
+    <a href="../about/">About</a>
+    <a href="https://rafaelromao.github.io/blog/rss.xml">RSS</a>
+    <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch theme">
+      <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M13 3.5a8.5 8.5 0 1 0 7.5 12.6A7 7 0 0 1 13 3.5z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg>
+    </button>
+  </nav>
+</header>
+<main id="main" tabindex="-1">
+<section class="hero"><h1>Archive</h1><p class="tagline">1 of 52 published, grouped by track.</p></section><section class="listing"><h2 class="listing-head">The Job</h2><ul class="cards"><li class="card">
+  <a class="card-link" href="../the-job-nobody-writes-down/">
+    <span class="card-meta"><span class="track">The Job</span><span class="dot">.</span>Week 1<span class="dot">.</span>5 min</span>
+    <h2 class="card-title">The Job Nobody Writes Down</h2>
+    <p class="card-summary">Staff+ is the first level where the organization states a need and you supply the job description, which is why two people with the same title can be doing different jobs and both be right.</p>
+  </a>
+</li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Rafael Romao on Staff+ Engineering. Written by Rafael Romao.</p>
+  <p class="foot-note">Drawn from a private knowledge base of Staff+ engineering notes synthesized from sixty-five books.</p>
+</footer>
+<script>
+  (function () {
+    var btn = document.getElementById("theme-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var root = document.documentElement;
+      var dark = root.dataset.theme
+        ? root.dataset.theme === "dark"
+        : matchMedia("(prefers-color-scheme: dark)").matches;
+      root.dataset.theme = dark ? "light" : "dark";
+      try { localStorage.setItem("kb-theme", root.dataset.theme); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>
