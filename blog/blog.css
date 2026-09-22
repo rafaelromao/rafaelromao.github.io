@@ -1,4 +1,4 @@
-/* Public blog. Shares the knowledge base's design system: paper and rust in light,
+/* Public blog. Shares the reader's design system: paper and rust in light,
    Tokyo Night in dark, Literata for reading and Libre Franklin for apparatus.
    Mobile-first. No framework, no build step beyond the copy into public/. */
 
@@ -267,9 +267,8 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--wide); margin: 0 auto; padd
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.09em;
   color: var(--ink-3); font-weight: 600; margin: 0 0 0.75rem;
 }
-.apparatus-note { font-size: 0.85rem; color: var(--ink-3); margin: 0 0 0.75rem; }
-.note-list, .source-list { list-style: none; margin: 0; padding: 0; font-size: 0.9rem; color: var(--ink-2); }
-.note-list li, .source-list li { padding: 0.25rem 0; }
+.source-list { list-style: none; margin: 0; padding: 0; font-size: 0.9rem; color: var(--ink-2); }
+.source-list li { padding: 0.25rem 0; }
 .source-list li { font-style: italic; }
 
 .prevnext {
