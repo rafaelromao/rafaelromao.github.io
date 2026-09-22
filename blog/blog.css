@@ -269,7 +269,10 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--wide); margin: 0 auto; padd
 }
 .source-list { list-style: none; margin: 0; padding: 0; font-size: 0.9rem; color: var(--ink-2); }
 .source-list li { padding: 0.25rem 0; }
-.source-list li { font-style: italic; }
+/* The title is the work, so it carries the italic; the author beside it does not. */
+.source-list cite { font-style: italic; }
+.source-list a { color: inherit; text-decoration-color: var(--rule); }
+.source-list a:hover { color: var(--ink-1); text-decoration-color: currentColor; }
 
 .prevnext {
   display: grid; gap: 1rem; max-width: var(--measure);
