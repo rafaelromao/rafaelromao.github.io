@@ -8,6 +8,7 @@ Hand-written HTML and CSS. No framework, no build step, no dependencies.
 ```
 index.html          the short version: the case, in about 90 seconds
 story/index.html    the long version: twelve chapters of career narrative
+coding-labs/        presents the coding labs, which live at /labs from their own repository
 assets/site.css     design tokens and layout, shared by both pages
 assets/site.js      theme toggle and scroll reveals
 assets/favicon.svg

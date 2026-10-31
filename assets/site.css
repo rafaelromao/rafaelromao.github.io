@@ -264,6 +264,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .method > li > .rail,
 .writing > li > .rail,
 .projects > li,
+.tiles > li,
 .proj-lead, .proj-feature,
 .creds > div,
 .story-plug,
@@ -277,7 +278,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 /* Stacks of long entries: one column, so the prose keeps its measure. */
 .ledger, .systems { display: grid; gap: 0.9rem; }
 /* Tiles of short entries. */
-.method, .writing {
+.method, .writing, .tiles {
   display: grid; gap: 0.9rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
 }
@@ -720,6 +721,28 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 @media (min-width: 44rem) { .story-end { grid-template-columns: minmax(0, 1fr) auto; gap: 2.5rem; } }
 .story-end h2 { font-size: clamp(1.4rem, 3vw, 1.85rem); margin: 0 0 0.5rem; }
 .story-end p { margin: 0; color: var(--ink-2); font-family: var(--font-ui); font-size: 0.95rem; max-width: 46ch; }
+
+/* ---------- labs page ---------- */
+.tiles { list-style: none; margin: 0; padding: 0; }
+.tiles h3 { font-family: var(--font-ui); font-size: 0.98rem; margin: 0 0 0.3rem; letter-spacing: 0; }
+.tiles p { margin: 0; font-size: 0.95rem; color: var(--ink-2); }
+.intro-actions { margin-top: 1.6rem; }
+.lab-list {
+  list-style: none; margin: 0.9rem 0 0; padding: 0;
+  font-family: var(--font-ui); font-size: 0.9rem;
+}
+.lab-list li {
+  display: flex; gap: 0.6rem; align-items: baseline;
+  padding: 0.45rem 0; border-top: 1px solid var(--rule);
+}
+.lab-list li:last-child { padding-bottom: 0; }
+.lab-list a { color: var(--ink); }
+.lab-list a:hover { color: var(--accent); }
+.lab-id {
+  flex: none; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--accent-ink); background: var(--accent-wash);
+  border-radius: 0.3rem; padding: 0.05rem 0.4rem;
+}
 
 /* ---------- story invitation on the front page ---------- */
 .story-plug {

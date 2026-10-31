@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coding Labs — Rafael Romão</title>
+<meta name="description" content="Twenty-two production-style backend components to implement yourself, in Java and in Go, each with a written contract, a diagram, a starter stub, a test suite and a reference solution.">
+<meta name="author" content="Rafael Romão">
+<link rel="canonical" href="https://rafaelromao.github.io/coding-labs/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding Labs — Rafael Romão">
+<meta property="og:description" content="Twenty-two backend components to implement yourself, in Java and in Go, with tests that check the contract.">
+<meta property="og:url" content="https://rafaelromao.github.io/coding-labs/">
+<meta property="og:image" content="https://rafaelromao.github.io/img/rafael.jpg">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f9f7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1b26" media="(prefers-color-scheme: dark)">
+
+<script>
+  document.documentElement.classList.add('js');
+  try {
+    var t = localStorage.getItem('kb-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <a class="masthead-title" href="/">
+    <img class="rail-portrait" src="../img/rafael.jpg" alt="" width="400" height="400" loading="eager" decoding="async">
+    <span class="rail-name">Rafael Romão</span>
+    <span class="rail-role">Director of Technology &middot; Belo Horizonte</span>
+  </a>
+  <div class="rail-scroll">
+  <nav class="masthead-nav" aria-label="Sections">
+    <a href="/">The short version</a>
+  </nav>
+  <nav class="chapters-nav" aria-label="On this page">
+    <a href="#inside">What is in a lab</a>
+    <a href="#steps">Four steps per lab</a>
+    <a href="#catalogue">The 22 labs</a>
+    <a href="/labs/">Open the labs</a>
+  </nav>
+  </div>
+  <div class="rail-foot">
+    <ul class="rail-social">
+      <li><a href="mailto:rafaelromao@gmail.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/rafaelromao" rel="me noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/rafaelromao" rel="me noopener">GitHub</a></li>
+    </ul>
+  </div>
+  <button class="theme-btn" type="button" id="theme" aria-label="Switch between light and dark">
+    <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.4 12h2.2M19.4 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+    <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
+  </button>
+</header>
+
+<main id="main">
+  <section class="story-intro">
+    <a class="back" href="/">&larr; The short version</a>
+    <h1>Coding Labs</h1>
+    <p class="deck">Twenty-two production-style backend components to implement yourself, in Java and in Go. Each one comes with a written contract, a diagram, a starter stub, a test suite that checks the contract, and a reference solution to compare against afterwards.</p>
+    <p class="actions intro-actions">
+      <a class="btn btn-primary" href="/labs/">Open the labs</a>
+      <a class="btn" href="https://github.com/rafaelromao/labs">Source on GitHub</a>
+    </p>
+  </section>
+
+  <section class="band" id="inside">
+    <div class="row">
+      <p class="idx">01</p>
+      <div>
+        <h2 class="band-title">What is in a lab</h2>
+        <p class="band-note">Small components of the kind a backend actually runs on: a blocking queue, a rate limiter, an outbox, a route planner. Each is scoped to be built in a sitting and still have edges worth getting wrong.</p>
+      </div>
+    </div>
+    <ul class="tiles">
+      <li class="reveal"><h3>A contract</h3><p>The task, the API, the rules and a worked example, written down before any code. Every lab page also has implementation steps and a checklist.</p></li>
+      <li class="reveal"><h3>A diagram</h3><p>Every lab has one, showing the structure or the timeline the contract talks about.</p></li>
+      <li class="reveal"><h3>Starters in Java and Go</h3><p>IntelliJ IDEA projects with the public API in place and every method body left as a TODO: Gradle on JDK 21, and a Go module run with <code>-race</code>.</p></li>
+      <li class="reveal"><h3>Tests that check the contract</h3><p>They fail out of the box. A supplied suite finds the boundary you skipped, the tie you broke differently, the interleaving you never imagined.</p></li>
+      <li class="reveal"><h3>A reference solution</h3><p>For both languages, with the full test suite, to read only after your own version passes.</p></li>
+    </ul>
+  </section>
+
+  <section class="band" id="steps">
+    <div class="row">
+      <p class="idx">02</p>
+      <div>
+        <h2 class="band-title">Four steps per lab</h2>
+        <p class="band-note">The order matters more than the code.</p>
+      </div>
+    </div>
+    <ol class="method">
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Read the contract and the tests.</h3>
+        <p>List the inputs, outputs, boundaries, invariants, failure behaviour and limits before writing anything.</p>
+      </div></div></li>
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Implement the starter.</h3>
+        <p>Replace every TODO. Run the lab's tests and fix what fails before reading anything else.</p>
+      </div></div></li>
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Compare.</h3>
+        <p>Open the reference solution and explain one difference in representation or synchronization.</p>
+      </div></div></li>
+      <li><div class="rail reveal"><p class="num" aria-hidden="true"></p><div>
+        <h3>Change something.</h3>
+        <p>Add a test for an edge case you chose, or implement the variation the lab page suggests.</p>
+      </div></div></li>
+    </ol>
+  </section>
+
+  <section class="band" id="catalogue">
+    <div class="row">
+      <p class="idx">03</p>
+      <div>
+        <h2 class="band-title">The 22 labs</h2>
+        <p class="band-note">Six groups. New here? Start with <a href="/labs/lab/l05-ttlcache.html">L05 Bounded TTL Cache</a>: its tests show the shape the others expect, with an injected clock, an inclusive deadline and a concurrent schedule.</p>
+      </div>
+    </div>
+    <ul class="tiles">
+      <li class="reveal">
+        <h3>Concurrency building blocks</h3>
+        <p>Hand-offs, pools and coalescing between threads.</p>
+        <ul class="lab-list">
+            <li><span class="lab-id nums">L01</span><a href="/labs/lab/l01-blockingqueue.html">Bounded Blocking Queue</a></li>
+            <li><span class="lab-id nums">L02</span><a href="/labs/lab/l02-workerpool.html">Bounded Worker Pool</a></li>
+            <li><span class="lab-id nums">L03</span><a href="/labs/lab/l03-fanout.html">Concurrent Request Aggregator</a></li>
+            <li><span class="lab-id nums">L04</span><a href="/labs/lab/l04-singleflight.html">Per-Key Request Coalescing</a></li>
+            <li><span class="lab-id nums">L15</span><a href="/labs/lab/l15-pubsub.html">Bounded Publish-Subscribe Component</a></li>
+        </ul>
+      </li>
+      <li class="reveal">
+        <h3>Caches and admission control</h3>
+        <p>What to keep, what to evict, and who gets in.</p>
+        <ul class="lab-list">
+            <li><span class="lab-id nums">L05</span><a href="/labs/lab/l05-ttlcache.html">Bounded TTL Cache</a></li>
+            <li><span class="lab-id nums">L06</span><a href="/labs/lab/l06-lfucache.html">LFU Cache</a></li>
+            <li><span class="lab-id nums">L07</span><a href="/labs/lab/l07-ratelimiter.html">Per-Client Rate Limiter</a></li>
+        </ul>
+      </li>
+      <li class="reveal">
+        <h3>Time, scheduling and capacity</h3>
+        <p>Deadlines, bookings and windows over an injected clock.</p>
+        <ul class="lab-list">
+            <li><span class="lab-id nums">L08</span><a href="/labs/lab/l08-scheduler.html">Delayed Task Scheduler</a></li>
+            <li><span class="lab-id nums">L14</span><a href="/labs/lab/l14-reservation.html">Concurrent Reservation Component</a></li>
+            <li><span class="lab-id nums">L16</span><a href="/labs/lab/l16-temporalstore.html">Time-Indexed Key-Value Store</a></li>
+            <li><span class="lab-id nums">L17</span><a href="/labs/lab/l17-windowmetrics.html">Time-Window Event Aggregator</a></li>
+        </ul>
+      </li>
+      <li class="reveal">
+        <h3>Reliability and data integrity</h3>
+        <p>Retries, idempotency and the transactional outbox.</p>
+        <ul class="lab-list">
+            <li><span class="lab-id nums">L09</span><a href="/labs/lab/l09-resilience.html">Retry and Circuit Breaker Executor</a></li>
+            <li><span class="lab-id nums">L10</span><a href="/labs/lab/l10-idempotency.html">Durable Idempotent Operation</a></li>
+            <li><span class="lab-id nums">L11</span><a href="/labs/lab/l11-outbox.html">Outbox and Idempotent Consumer</a></li>
+            <li><span class="lab-id nums">L18</span><a href="/labs/lab/l18-streamio.html">Streaming Record Processor</a></li>
+        </ul>
+      </li>
+      <li class="reveal">
+        <h3>Graphs and hierarchies</h3>
+        <p>Dependencies, trees and shortest paths.</p>
+        <ul class="lab-list">
+            <li><span class="lab-id nums">L12</span><a href="/labs/lab/l12-dag.html">Dependency Task Executor</a></li>
+            <li><span class="lab-id nums">L13</span><a href="/labs/lab/l13-filesystem.html">In-Memory File System</a></li>
+            <li><span class="lab-id nums">L21</span><a href="/labs/lab/l21-routing.html">Route Planner</a></li>
+        </ul>
+      </li>
+      <li class="reveal">
+        <h3>Geospatial</h3>
+        <p>Objects that move, zones they cross, and the roads under them.</p>
+        <ul class="lab-list">
+            <li><span class="lab-id nums">L19</span><a href="/labs/lab/l19-nearby.html">Nearby-Object Search</a></li>
+            <li><span class="lab-id nums">L20</span><a href="/labs/lab/l20-geofence.html">Geofencing Engine</a></li>
+            <li><span class="lab-id nums">L22</span><a href="/labs/lab/l22-trajectory.html">Trajectory Processor</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="story-end">
+    <div>
+      <h2>Pick one and make the tests pass.</h2>
+      <p>Every lab page has the task, the diagram, the API, the rules, a worked example and a checklist.</p>
+    </div>
+    <p class="actions">
+      <a class="btn btn-primary" href="/labs/">Open the labs</a>
+    </p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div>
+      <h2>Let's talk.</h2>
+      <p>Always glad to talk about distributed systems, developer platforms, or agentic engineering with anyone who finds them as interesting as I do.</p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="mailto:rafaelromao@gmail.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/rafaelromao" rel="me noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/rafaelromao" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.credly.com/users/rafael-romao" rel="noopener">Credly</a></li>
+      <li><a href="https://goodreads.com/rafaelromao" rel="me noopener">Goodreads</a></li>
+    </ul>
+  </div>
+  <div class="colophon">
+    <p>Belo Horizonte, Brazil</p>
+    <p>Set in Literata and Libre Franklin. Hand-written HTML, no build step. <a href="https://github.com/rafaelromao/rafaelromao.github.io">Source</a>.</p>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>
