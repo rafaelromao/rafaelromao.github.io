@@ -480,7 +480,7 @@
       <p class="idx">05</p>
       <div>
         <h2 class="band-title">Open source</h2>
-        <p class="band-note">Built in my own time: tools for agentic engineering, and two keyboard projects that turned into interesting engineering problems. The rest of my keyboard work, firmware, layout, hardware and ZMK modules, is on my <a href="https://github.com/rafaelromao">GitHub profile</a>.</p>
+        <p class="band-note">Built in my own time: tools for agentic engineering, and two keyboard projects that turned into interesting engineering problems.</p>
       </div>
     </div>
 
@@ -591,6 +591,12 @@
       </figure>
 
       <p>The part I find more interesting than the trick is what it takes to make it survive real typing. The keyboard keeps its own local inference and the host only corrects it, which means a host message always describes the editor as of an earlier keystroke. Two rules reconcile them: a <strong>60 ms hold-off</strong> before believing a zero, because the kernel zeroes the whole byte whenever it sends its own lamp update, and a <strong>150 ms guard</strong> after any keyboard-driven change, so a stale in-flight message cannot undo a correct local one. The keyboard wins in motion, the host wins at rest.</p>
+    </div>
+
+    <div class="proj-feature reveal">
+      <h3><a href="https://github.com/rafaelromao">More on GitHub</a></h3>
+      <p class="tagline">github.com/rafaelromao</p>
+      <p>The rest of my keyboard work lives on my GitHub profile: the ZMK firmware configuration, the Romak layout, the Diamond handwired split, an on-screen layer HUD, and a handful of ZMK modules.</p>
     </div>
   </section>
 
