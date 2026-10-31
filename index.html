@@ -607,19 +607,40 @@
         <h4 class="proj-name">Keyboards</h4>
         <p class="proj-meta">Firmware, layout, hardware</p>
         <ul class="proj-sub">
-          <li><a href="https://rafaelromao.github.io/keyboards/">My Own Keyboards Firmware</a> is my split keyboard configuration in ZMK, tuned for Portuguese, English, numbers and programming with Vim. Built from a containerized toolchain and git submodules rather than hosted CI, so a firmware build is reproducible on any machine and offline.</li>
-          <li><a href="https://rafaelromao.github.io/romak/">Romak: My Own Keyboard Layout</a> is for people who write both Portuguese and English, optimizing for hand alternation and against same-finger bigrams, pinky load and centre-column reaches. Published with the comparative analyses against a dozen existing layouts that justify each decision.</li>
-          <li><a href="https://rafaelromao.github.io/diamond/">Diamond: My Own Keyboards</a> is a 24-key handwired split keyboard in a 1333+2 layout, designed around hiding its own hardware: the controller, reset button and power switch mount upside down inside the base, under a cover that the column and row wiring passes through. Published as printable STLs in three builds, MX, wired and Choc, drawing on the Rommana and the Dactyl Cygnus switch holders.</li>
+          <li>
+            <h5 class="proj-sub-name"><a href="https://rafaelromao.github.io/keyboards/">Firmware</a></h5>
+            <p>My keyboards repo contains my split keyboard configuration in ZMK, tuned for Portuguese, English, numbers and programming with Vim. It builds from a containerized toolchain and git submodules rather than hosted CI, so a firmware build is reproducible on any machine and offline.</p>
+          </li>
+          <li>
+            <h5 class="proj-sub-name"><a href="https://rafaelromao.github.io/romak/">Layout</a></h5>
+            <p>Romak is my own keyboard layout, for people who write both Portuguese and English, optimizing for hand alternation and against same-finger bigrams, pinky load and centre-column reaches. Published with the comparative analyses against a dozen existing layouts that justify each decision.</p>
+          </li>
+          <li>
+            <h5 class="proj-sub-name"><a href="https://rafaelromao.github.io/diamond/">Hardware</a></h5>
+            <p>Diamond is my own keyboard: a 24-key handwired split in a 1333+2 layout, designed around hiding its own hardware. The controller, reset button and power switch mount upside down inside the base, under a cover that the column and row wiring passes through. Published as printable STLs in three builds, MX, wired and Choc, drawing on the Rommana and the Dactyl Cygnus switch holders.</p>
+          </li>
         </ul>
       </li>
       <li class="reveal">
         <h4 class="proj-name">ZMK behaviours</h4>
         <p class="proj-meta">C, devicetree &middot; ZMK modules</p>
         <ul class="proj-sub">
-          <li><a href="https://github.com/rafaelromao/zmk-layer-morph">zmk-layer-morph</a> morphs a keypress into a different binding when any of a named set of layers is active. It is what lets one keymap serve both macOS and Linux base layers without duplicating every key.</li>
-          <li><a href="https://github.com/rafaelromao/zmk-os-detection">zmk-os-detection</a> tells macOS from Linux by how the host reads the keyboard's own descriptors, over USB or BLE, and flips one layer to match. A host it cannot identify leaves the layer alone; it never guesses.</li>
-          <li><a href="https://github.com/rafaelromao/zmk-sentence-case">zmk-sentence-case</a> is a sentence-aware space: after a full stop, question or exclamation mark, the next letter comes out capitalized without reaching for Shift.</li>
-          <li><a href="https://github.com/rafaelromao/zmk-dongle-display">zmk-dongle-display</a> <span class="proj-fork">(fork)</span> adds peripheral status screens to the dongle display, so a half with an OLED can show the dongle's host connection and every half's battery.</li>
+          <li>
+            <h5 class="proj-sub-name"><a href="https://github.com/rafaelromao/zmk-layer-morph">zmk-layer-morph</a></h5>
+            <p>Morphs a keypress into a different binding when any of a named set of layers is active. It is what lets one keymap serve both macOS and Linux base layers without duplicating every key.</p>
+          </li>
+          <li>
+            <h5 class="proj-sub-name"><a href="https://github.com/rafaelromao/zmk-os-detection">zmk-os-detection</a></h5>
+            <p>Tells macOS from Linux by how the host reads the keyboard's own descriptors, over USB or BLE, and flips one layer to match. A host it cannot identify leaves the layer alone; it never guesses.</p>
+          </li>
+          <li>
+            <h5 class="proj-sub-name"><a href="https://github.com/rafaelromao/zmk-sentence-case">zmk-sentence-case</a></h5>
+            <p>A sentence-aware space: after a full stop, question or exclamation mark, the next letter comes out capitalized without reaching for Shift.</p>
+          </li>
+          <li>
+            <h5 class="proj-sub-name"><a href="https://github.com/rafaelromao/zmk-dongle-display">zmk-dongle-display</a> <span class="proj-fork">(fork)</span></h5>
+            <p>Adds peripheral status screens to the dongle display, so a half with an OLED can show the dongle's host connection and every half's battery.</p>
+          </li>
         </ul>
       </li>
     </ul>

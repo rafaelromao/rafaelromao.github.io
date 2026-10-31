@@ -252,8 +252,8 @@ h1, h2, h3 { font-weight: 600; letter-spacing: -0.018em; }
 /* ---------- shell ---------- */
 main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; padding: 0 var(--pad); }
 
-/* The page grammar: a hanging measure column on the left carries indices,
-   years and short labels; substance sits in the main column. */
+/* The page grammar: section headers share the left edge with their cards;
+   inside a card, a hanging column carries years and short labels. */
 .band { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
 
 /* ---------- cards ----------
@@ -281,9 +281,9 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
   display: grid; gap: 0.9rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
 }
-.row, .rail { display: grid; gap: 0.5rem 2.5rem; }
+.rail { display: grid; gap: 0.5rem 2.5rem; }
 @media (min-width: 56rem) {
-  .row, .rail { grid-template-columns: var(--gutter) minmax(0, 1fr); }
+  .rail { grid-template-columns: var(--gutter) minmax(0, 1fr); }
 }
 /* Every ledger row in the page hangs off the same measure column. */
 .rail { gap: 0.15rem 2.5rem; padding: 0; align-items: baseline; }
@@ -292,9 +292,8 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .idx {
   font-family: var(--font-ui); font-size: 0.72rem; font-weight: 600;
   letter-spacing: 0.1em; color: var(--accent-ink);
-  font-variant-numeric: tabular-nums; padding-top: 0.55rem;
+  font-variant-numeric: tabular-nums; margin: 0 0 0.35rem;
 }
-@media (min-width: 56rem) { .idx { text-align: right; } }
 
 .band-title {
   font-size: clamp(1.5rem, 3vw, 1.95rem); line-height: 1.2;
@@ -519,10 +518,16 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
   text-transform: uppercase; color: var(--ink-3); margin: 0 0 0.5rem;
 }
 .projects p { margin: 0; font-size: 0.95rem; color: var(--ink-2); }
-.proj-sub { list-style: none; margin: 0; padding: 0; font-size: 0.95rem; color: var(--ink-2); }
-.proj-sub > li + li { margin-top: 0.6rem; }
-.proj-sub a { color: var(--ink); font-weight: 500; }
-.proj-sub a:hover { color: var(--accent); }
+/* Grouped entries inside one card, each under its own name and divided by a rule. */
+.proj-sub { list-style: none; margin: 0.9rem 0 0; padding: 0; }
+.proj-sub > li { padding: 0.9rem 0; border-top: 1px solid var(--rule); }
+.proj-sub > li:last-child { padding-bottom: 0; }
+.proj-sub-name {
+  font-family: var(--font-ui); font-size: 0.92rem; font-weight: 600;
+  margin: 0 0 0.3rem; letter-spacing: 0;
+}
+.proj-sub-name a { color: var(--ink); }
+.proj-sub-name a:hover { color: var(--accent); }
 .proj-fork { font-family: var(--font-ui); font-size: 0.82rem; color: var(--ink-3); }
 
 /* ---------- writing ---------- */
