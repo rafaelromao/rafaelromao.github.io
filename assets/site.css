@@ -1,8 +1,9 @@
 /* rafaelromao.github.io
    Shares the design system used by the blog at /blog: paper and rust in light,
    Tokyo Night in dark, Literata for reading and Libre Franklin for apparatus.
-   The page grammar is a datasheet: a hanging measure column, hairline rules,
-   tabular figures. No framework, no build step. */
+   The page grammar is a datasheet set in boxes: each entry is a card on the
+   paper, long prose stacks in one column, short entries tile in a grid.
+   No framework, no build step. */
 
 :root {
   /* Inherited from the blog's token set so the two halves read as one site. */
@@ -21,6 +22,11 @@
   /* Career-page additions. */
   --rule-strong: oklch(0.72 0.012 80);
   --accent-quiet: oklch(0.72 0.09 34);
+  /* Cards: a lifted surface, a hairline and a shadow that only light mode needs. */
+  --surface: oklch(0.995 0.004 85);
+  --shadow: 0 1px 2px oklch(0.24 0.012 60 / 0.06), 0 4px 16px oklch(0.24 0.012 60 / 0.05);
+  --radius: 0.6rem;
+  --card-pad: clamp(1rem, 2.5vw, 1.5rem);
 
   --font-read: "Literata", Georgia, "Iowan Old Style", "Times New Roman", serif;
   --font-ui: "Libre Franklin", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -51,6 +57,8 @@
     --accent-ink: #7dcfff;
     --accent-wash: #283457;
     --accent-quiet: #4c6bb5;
+    --surface: #1f2335;
+    --shadow: none;
     color-scheme: dark;
   }
 }
@@ -67,6 +75,8 @@
   --accent-ink: #7dcfff;
   --accent-wash: #283457;
   --accent-quiet: #4c6bb5;
+  --surface: #1f2335;
+  --shadow: none;
   color-scheme: dark;
 }
 
@@ -245,13 +255,38 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 /* The page grammar: a hanging measure column on the left carries indices,
    years and short labels; substance sits in the main column. */
 .band { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
-.band + .band { border-top: 1px solid var(--rule); }
+
+/* ---------- cards ----------
+   One box for every entry on the page. The card is the element that reveals,
+   so a box never sits empty while its contents fade in. */
+.ledger > li > .post,
+.systems > li > .rail,
+.method > li > .rail,
+.writing > li > .rail,
+.projects > li,
+.proj-lead, .proj-feature,
+.creds > div,
+.story-plug,
+.chart-wrap {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--card-pad);
+}
+/* Stacks of long entries: one column, so the prose keeps its measure. */
+.ledger, .systems { display: grid; gap: 0.9rem; }
+/* Tiles of short entries. */
+.method, .writing {
+  display: grid; gap: 0.9rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+}
 .row, .rail { display: grid; gap: 0.5rem 2.5rem; }
 @media (min-width: 56rem) {
   .row, .rail { grid-template-columns: var(--gutter) minmax(0, 1fr); }
 }
 /* Every ledger row in the page hangs off the same measure column. */
-.rail { gap: 0.15rem 2.5rem; padding: 1.5rem 0; align-items: baseline; }
+.rail { gap: 0.15rem 2.5rem; padding: 0; align-items: baseline; }
 .rail > :first-child { padding-top: 0.15rem; }
 
 .idx {
@@ -340,7 +375,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .btn svg { flex: none; }
 
 /* ---------- span chart ---------- */
-.chart-wrap { margin: 0; padding: clamp(2rem, 5vw, 3rem) 0 0; }
+.chart-wrap { margin: 0; }
 .chart-scroll { overflow-x: auto; overscroll-behavior-x: contain; }
 /* The chart scrolls horizontally on narrow screens either way, so hold it near
    its natural width: below about 52rem the 11px labels scale down past
@@ -370,8 +405,6 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 
 /* ---------- ledger ---------- */
 .ledger { list-style: none; margin: 0; padding: 0; }
-.ledger > li { border-top: 1px solid var(--rule); }
-.ledger > li:last-child { border-bottom: 1px solid var(--rule); }
 
 .post-when {
   font-family: var(--font-ui); font-size: 0.8rem; color: var(--ink-3);
@@ -394,7 +427,9 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .post-list { margin: 0; padding-left: 1.1rem; max-width: var(--measure); }
 .post-list li { margin: 0.35rem 0; }
 
-.org-head { padding: 1.75rem 0 0.4rem; font-family: var(--font-ui); }
+/* Inset by the card padding, so the span lines up with the dates inside the cards. */
+.org-head { padding: 2rem var(--card-pad) 0.9rem; font-family: var(--font-ui); }
+.band > .row + .org-head { padding-top: 0; }
 .org-head .span {
   font-size: 0.8rem; color: var(--ink-3); font-variant-numeric: tabular-nums;
 }
@@ -404,8 +439,6 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 
 /* ---------- systems ---------- */
 .systems { margin: 0; padding: 0; list-style: none; }
-.systems > li { border-top: 1px solid var(--rule); }
-.systems > li:last-child { border-bottom: 1px solid var(--rule); }
 .sys-when {
   font-family: var(--font-ui); font-size: 0.8rem; color: var(--ink-3);
   font-variant-numeric: tabular-nums; white-space: nowrap;
@@ -426,25 +459,26 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 
 /* ---------- method ---------- */
 .method { list-style: none; counter-reset: m; margin: 0; padding: 0; }
-.method > li { counter-increment: m; border-top: 1px solid var(--rule); }
-.method > li:last-child { border-bottom: 1px solid var(--rule); }
+.method > li { counter-increment: m; display: flex; }
+.method > li > .rail { display: block; flex: 1; }
 /* Neutral, not accent: the section index in the gutter is the loud numeral,
    these sit a step below it. --accent-quiet is reserved for the chart, where
    it only ever fills a shape. */
+.method .num { margin: 0 0 0.45rem; }
 .method .num::before {
   content: counter(m, decimal-leading-zero);
-  font-family: var(--font-ui); font-size: 0.78rem; font-weight: 600;
-  color: var(--ink-3); font-variant-numeric: tabular-nums;
+  font-family: var(--font-ui); font-size: 0.72rem; font-weight: 600;
+  color: var(--accent-ink); background: var(--accent-wash);
+  border-radius: 0.3rem; padding: 0.1rem 0.4rem; letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
 }
-@media (min-width: 56rem) { .method .num { text-align: right; } }
 .method h3 { font-family: var(--font-ui); font-size: 0.98rem; margin: 0; letter-spacing: 0; }
 .method p { margin: 0.2rem 0 0; font-size: 0.98rem; color: var(--ink-2); max-width: var(--measure); }
 
 /* ---------- projects ---------- */
 .proj-lead {
   display: grid; gap: 1.5rem 2.5rem; align-items: start;
-  padding: 1.6rem 0; border-top: 1px solid var(--rule-strong);
-  border-bottom: 1px solid var(--rule);
+  margin-bottom: 0.9rem;
 }
 @media (min-width: 50rem) { .proj-lead { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
 .proj-lead h3 { font-size: 1.5rem; margin: 0 0 0.15rem; }
@@ -455,8 +489,9 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
   margin: 0 0 0.75rem;
 }
 .proj-lead p { margin: 0 0 0.8rem; }
+.proj-lead p:last-child { margin-bottom: 0; }
 .proj-figure {
-  margin: 0; border: 1px solid var(--rule); border-radius: 3px;
+  margin: 0; border: 1px solid var(--rule); border-radius: calc(var(--radius) - 0.2rem);
   background: var(--paper-2); padding: 1.1rem 1.2rem; overflow: hidden;
 }
 .proj-figure pre {
@@ -468,12 +503,11 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 
 .projects {
   list-style: none; margin: 0; padding: 0;
-  display: grid; gap: 0;
+  display: grid; gap: 0.9rem;
 }
 @media (min-width: 44rem) {
-  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; }
+  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-.projects > li { padding: 1.35rem 0; border-bottom: 1px solid var(--rule); }
 .proj-name {
   font-family: var(--font-ui); font-size: 1rem; font-weight: 600;
   margin: 0 0 0.1rem; letter-spacing: 0;
@@ -485,33 +519,28 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
   text-transform: uppercase; color: var(--ink-3); margin: 0 0 0.5rem;
 }
 .projects p { margin: 0; font-size: 0.95rem; color: var(--ink-2); }
+.proj-sub { list-style: none; margin: 0; padding: 0; font-size: 0.95rem; color: var(--ink-2); }
+.proj-sub > li + li { margin-top: 0.6rem; }
+.proj-sub a { color: var(--ink); font-weight: 500; }
+.proj-sub a:hover { color: var(--accent); }
+.proj-fork { font-family: var(--font-ui); font-size: 0.82rem; color: var(--ink-3); }
 
 /* ---------- writing ---------- */
 .writing { list-style: none; margin: 0; padding: 0; }
-.writing > li { border-top: 1px solid var(--rule); }
-.writing > li:last-child { border-bottom: 1px solid var(--rule); }
+.writing > li { display: flex; }
+.writing > li > .rail { display: block; flex: 1; }
 .writing h3 { font-size: 1.05rem; margin: 0 0 0.25rem; }
 .writing h3 a { color: var(--ink); }
 .writing h3 a:hover { color: var(--accent); }
 .writing .where {
   font-family: var(--font-ui); font-size: 0.75rem; letter-spacing: 0.05em;
-  text-transform: uppercase; color: var(--ink-3); margin: 0;
+  text-transform: uppercase; color: var(--ink-3); margin: 0 0 0.4rem;
 }
-@media (min-width: 56rem) { .writing .where { text-align: right; } }
 .writing p.sum { font-family: var(--font-ui); font-size: 0.92rem; color: var(--ink-2); margin: 0; max-width: var(--measure); }
 
-.blog-plug {
-  display: grid; gap: 1rem; align-items: center;
-  padding: 1.5rem 1.5rem; margin: 0 0 2rem;
-  background: var(--paper-2); border: 1px solid var(--rule); border-radius: 4px;
-}
-@media (min-width: 40rem) { .blog-plug { grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; } }
-.blog-plug h3 { font-size: 1.2rem; margin: 0 0 0.3rem; }
-.blog-plug p { font-family: var(--font-ui); font-size: 0.92rem; color: var(--ink-2); margin: 0; max-width: 46ch; }
-
 /* ---------- credentials ---------- */
-.creds { display: grid; gap: 2.5rem; }
-@media (min-width: 46rem) { .creds { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; } }
+.creds { display: grid; gap: 0.9rem; }
+@media (min-width: 46rem) { .creds { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .creds h3 {
   font-family: var(--font-ui); font-size: 0.76rem; font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink-3);
@@ -587,9 +616,11 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .decision > div:last-child dt { color: var(--accent-ink); }
 
 /* ---------- featured project figure ---------- */
-.proj-feature {
-  padding: 1.75rem 0 2rem; border-bottom: 1px solid var(--rule);
-}
+.proj-feature { margin-bottom: 0.9rem; }
+/* Two short features side by side; the one with a diagram keeps the full width. */
+.proj-pair { display: grid; gap: 0.9rem; margin-bottom: 0.9rem; }
+.proj-pair > .proj-feature { margin-bottom: 0; }
+@media (min-width: 60rem) { .proj-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .proj-feature h3 { font-size: 1.5rem; margin: 0 0 0.15rem; }
 .proj-feature h3 a { color: var(--ink); }
 .proj-feature h3 a:hover { color: var(--accent); }
@@ -640,6 +671,8 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 
 .chapters { list-style: none; margin: 0; padding: 0; counter-reset: ch; }
 .chapters > li { counter-increment: ch; border-top: 1px solid var(--rule); }
+/* The story stays a ledger of hairlines, not boxes: it is one continuous read. */
+.chapters .rail { padding: 1.5rem 0; }
 .chapters > li:last-child { border-bottom: 1px solid var(--rule); }
 .ch-when {
   font-family: var(--font-ui); font-variant-numeric: tabular-nums;
@@ -684,7 +717,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 /* ---------- story invitation on the front page ---------- */
 .story-plug {
   display: grid; gap: 1.25rem; align-items: center;
-  padding: clamp(1.5rem, 3vw, 2rem) 0 0;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
 }
 @media (min-width: 44rem) { .story-plug { grid-template-columns: minmax(0, 1fr) auto; gap: 2.5rem; } }
 .story-plug h3 { font-size: 1.25rem; margin: 0 0 0.35rem; }
@@ -701,8 +734,9 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 }
 
 @media print {
-  .masthead, .theme-btn, .actions, .blog-plug { display: none; }
+  .masthead, .theme-btn, .actions { display: none; }
   body { font-size: 10.5pt; }
+  :root { --shadow: none; }
   a { color: inherit; }
   /* Never print a hidden reveal: the observer does not run for print. */
   .js .reveal { opacity: 1 !important; transform: none !important; }

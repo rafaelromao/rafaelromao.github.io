@@ -70,12 +70,10 @@
     <a href="#systems">Systems</a>
     <a class="opt" href="#method">Method</a>
     <a href="#open-source">Open source</a>
+    <a href="/labs/">Labs</a>
     <a class="opt" href="#writing">Writing</a>
     <a class="opt" href="#credentials">Credentials</a>
     <a href="/story/">Story</a>
-    <!-- BLOG: hidden until the first article publishes. Restore by deleting this comment wrapper.
-    <a class="is-blog" href="/blog/">Blog</a>
-    -->
   </nav>
   </div>
   <div class="rail-foot">
@@ -200,7 +198,7 @@
         <div class="prose">
           <p>I am Director of Technology at Avenue Code, where I pair organizational leadership with hands-on technical work: architecture direction, engineering practices, delivery, and the development of engineers and technical leaders. I stay in the room for the decisions that are genuinely hard, the ones involving ambiguity, cross-team impact, modernization, scalability, or whether a system will still be maintainable in three years.</p>
           <p>The thread through all of it is <strong>engineering leverage</strong>. Simplify systems and workflows. Draw architectural boundaries that hold. Shorten feedback loops. Give engineers what they need to decide well on their own.</p>
-          <p>Most recently I have been applying that to <strong>agentic engineering</strong>: how autonomous coding agents fit inside a disciplined delivery process through clear specifications, isolated execution, observability, verification, and human review. I build the tools to test the idea before recommending it to anyone, which is where <a href="https://github.com/rafaelromao/sandman">Sandman</a> came from.</p>
+          <p>Most recently I have been applying that to <strong>agentic engineering</strong>: how autonomous coding agents fit inside a disciplined delivery process through clear specifications, isolated execution, observability, verification, and human review. I build the tools to test the idea before recommending it to anyone, which is where <a href="https://sandman.run/">Sandman</a> came from.</p>
           <p>The title on the org chart has changed several times. The work I care about has not: system boundaries, data paths, failure modes, and what a team can safely change next.</p>
         </div>
         <div class="story-plug">
@@ -488,7 +486,7 @@
 
     <div class="proj-lead reveal">
       <div>
-        <h3><a href="https://github.com/rafaelromao/sandman">Sandman</a></h3>
+        <h3><a href="https://sandman.run/">Sandman</a></h3>
         <p class="tagline">Sleep while your agents code.</p>
         <p>An orchestrator for autonomous coding agents. It pulls issues from GitHub, renders them through prompt templates, and runs each agent inside an isolated sandbox, a git worktree or a container, with dependency-aware parallel scheduling and a local portal for watching the runs.</p>
         <p>It exists because agentic engineering needs the same things any delivery process needs: a clear specification, an isolated execution boundary, an event log, verification, and a human review gate. Sandman is the argument made concrete. Released at v1.0.0 with a changelog, a security policy and a release pipeline, because a tool that asks you to trust it with your repository should look like it can be trusted.</p>
@@ -510,8 +508,24 @@
       </figure>
     </div>
 
+    <div class="proj-pair">
+      <div class="proj-feature reveal">
+        <h3><a href="https://rafaelromao.github.io/layerbench/">LayerBench</a></h3>
+        <p class="tagline">A layout analyzer that types the way the keyboard does.</p>
+        <p>Layout analyzers score a grid of letters. A ZMK keymap is not a grid of letters: it has one-shot and momentary layers, layers armed by macros, adaptive and repeat keys, combos, sticky shift and caps word, and each of them changes which physical keys a word actually costs. LayerBench simulates how a corpus is typed on the real keymap, then computes the usual metrics, same-finger bigrams, scissors, alternation, rolls, redirects and effort, on the resulting <strong>physical key stream</strong>.</p>
+        <p>Every rule is data: toggle it, re-parameterize it, or compose a new one. It runs entirely in the browser, with the engine in a Web Worker so a million-symbol analysis never blocks the page, and nothing leaves it unless you sign in with GitHub to keep your work in your own account.</p>
+      </div>
+
+      <div class="proj-feature reveal">
+        <h3><a href="https://rafaelromao.github.io/zmk-layer-hud/">zmk-layer-hud</a></h3>
+        <p class="tagline">Ask the keyboard, not the operating system.</p>
+        <p>An on-screen HUD that shows the layer you are on and lights the keys, combos and macros as you press them, drawn from the same keymap the firmware is built from. It is for learning a layout, and for recording or sharing a screen while you type on one.</p>
+        <p>Overlays like this usually infer the key from an OS event tap. This one does not infer anything: a small ZMK module reports the keyboard's own active layers and the position of every press, over Bluetooth or a serial interface of its own on USB, so the HUD shows what the firmware did rather than what the host saw. It runs as a native overlay panel on macOS and a layer-shell panel on Hyprland, and redraws live when the keymap changes.</p>
+      </div>
+    </div>
+
     <div class="proj-feature reveal">
-      <h3><a href="https://github.com/rafaelromao/zmk-vim-mode">zmk-vim-mode</a></h3>
+      <h3><a href="https://rafaelromao.github.io/zmk-vim-mode/">zmk-vim-mode</a></h3>
       <p class="tagline">A side channel that was already there.</p>
       <p>The keyboard should be in NORMAL when the editor is in normal mode. That needs the host to tell the keyboard something, and there is no standard channel for it: HID runs keyboard to host. Custom firmware protocols exist, but they mean pairing, a transport of your own, and a different answer for USB than for Bluetooth.</p>
       <p>There is one exception. The <strong>output report</strong> is a single byte the host sends <em>to</em> the keyboard, to light the Caps Lock and Num Lock lamps. It works identically over USB and Bluetooth, needs no pairing, and stock ZMK already accepts it. Of its five indicator bits, three are dead: no operating system sets Compose, Kana or Scroll Lock on its own. Read together they are a 3-bit number, which is eight states, which is more than Vim has modes.</p>
@@ -590,24 +604,29 @@
 
     <ul class="projects">
       <li class="reveal">
-        <h4 class="proj-name"><a href="https://github.com/rafaelromao/zmk-layer-morph">zmk-layer-morph</a></h4>
-        <p class="proj-meta">C, devicetree &middot; ZMK firmware</p>
-        <p>A ZMK behaviour that morphs a keypress into a different binding when any of a named set of layers is active. Small, focused, and load-bearing: it is what makes a single keymap serve both macOS and Linux base layers without duplicating every key.</p>
-      </li>
-      <li class="reveal">
-        <h4 class="proj-name"><a href="https://github.com/rafaelromao/keyboards">keyboards</a></h4>
+        <h4 class="proj-name"><a href="https://rafaelromao.github.io/keyboards/">keyboards</a></h4>
         <p class="proj-meta">Devicetree, shell &middot; ZMK firmware</p>
         <p>My split keyboard configuration, tuned for Portuguese, English, numbers and programming with Vim. Built from a containerized toolchain and git submodules rather than hosted CI, so a firmware build is reproducible on any machine and offline.</p>
       </li>
       <li class="reveal">
-        <h4 class="proj-name"><a href="https://github.com/rafaelromao/diamond">diamond</a></h4>
+        <h4 class="proj-name"><a href="https://rafaelromao.github.io/romak/">romak</a></h4>
+        <p class="proj-meta">Layout research</p>
+        <p>A keyboard layout for people who write both Portuguese and English, optimizing for hand alternation and against same-finger bigrams, pinky load and centre-column reaches. Published with the comparative analyses against a dozen existing layouts that justify each decision.</p>
+      </li>
+      <li class="reveal">
+        <h4 class="proj-name"><a href="https://rafaelromao.github.io/diamond/">diamond</a></h4>
         <p class="proj-meta">Hardware design &middot; Handwired, 3D printed</p>
         <p>A 24-key handwired split keyboard in a 1333+2 layout, designed around hiding its own hardware: the controller, reset button and power switch mount upside down inside the base, under a cover that the column and row wiring passes through. Published as printable STLs in three builds, MX, wired and Choc. My design, drawing on the Rommana and the Dactyl Cygnus switch holders.</p>
       </li>
       <li class="reveal">
-        <h4 class="proj-name"><a href="https://github.com/rafaelromao/romak">romak</a></h4>
-        <p class="proj-meta">Layout research</p>
-        <p>A keyboard layout for people who write both Portuguese and English, optimizing for hand alternation and against same-finger bigrams, pinky load and centre-column reaches. Published with the comparative analyses against a dozen existing layouts that justify each decision.</p>
+        <h4 class="proj-name">ZMK behaviours</h4>
+        <p class="proj-meta">C, devicetree &middot; ZMK modules</p>
+        <ul class="proj-sub">
+          <li><a href="https://github.com/rafaelromao/zmk-layer-morph">zmk-layer-morph</a> morphs a keypress into a different binding when any of a named set of layers is active. It is what lets one keymap serve both macOS and Linux base layers without duplicating every key.</li>
+          <li><a href="https://github.com/rafaelromao/zmk-os-detection">zmk-os-detection</a> tells macOS from Linux by how the host reads the keyboard's own descriptors, over USB or BLE, and flips one layer to match. A host it cannot identify leaves the layer alone; it never guesses.</li>
+          <li><a href="https://github.com/rafaelromao/zmk-sentence-case">zmk-sentence-case</a> is a sentence-aware space: after a full stop, question or exclamation mark, the next letter comes out capitalized without reaching for Shift.</li>
+          <li><a href="https://github.com/rafaelromao/zmk-dongle-display">zmk-dongle-display</a> <span class="proj-fork">(fork)</span> adds peripheral status screens to the dongle display, so a half with an OLED can show the dongle's host connection and every half's battery.</li>
+        </ul>
       </li>
     </ul>
   </section>
@@ -621,17 +640,14 @@
       </div>
     </div>
 
-    <!-- BLOG: hidden until the first article publishes. Restore by deleting this comment wrapper.
-    <div class="blog-plug reveal">
-      <div>
-        <h3>The blog</h3>
-        <p>A weekly essay on the Staff+ engineering role: scope and leverage, architectural decision-making, coupling and module design, distributed systems, running what you build, and working alongside machines.</p>
-      </div>
-      <p class="actions"><a class="btn btn-primary" href="/blog/">Read at /blog</a></p>
-    </div>
-    -->
-
     <ol class="writing">
+      <li><div class="rail reveal">
+        <p class="where">Blog</p>
+        <div>
+          <h3><a href="/blog/">The blog</a></h3>
+          <p class="sum">A weekly essay on the Staff+ engineering role: scope and leverage, architectural decision-making, coupling and module design, distributed systems, running what you build, and working alongside machines.</p>
+        </div>
+      </div></li>
       <li><div class="rail reveal">
         <p class="where">Whitepaper</p>
         <div>
