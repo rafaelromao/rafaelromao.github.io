@@ -254,7 +254,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 
 /* The page grammar: section headers share the left edge with their cards;
    inside a card, a hanging column carries years and short labels. */
-.band { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+.band { padding: clamp(2rem, 4vw, 3rem) 0 0; }
 
 /* ---------- cards ----------
    One box for every entry on the page. The card is the element that reveals,
@@ -301,7 +301,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 }
 /* The spacing below a section heading lives on the row, so bands with no
    standfirst are not pulled tight against their content. */
-.band > .row { margin-bottom: 2.25rem; }
+.band > .row { margin-bottom: 1.5rem; }
 .band-note {
   font-family: var(--font-ui); font-size: 0.98rem; color: var(--ink-2);
   max-width: var(--measure); margin: 0;
@@ -534,6 +534,8 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .writing { list-style: none; margin: 0; padding: 0; }
 .writing > li { display: flex; }
 .writing > li > .rail { display: block; flex: 1; }
+/* The blog lists its posts, so it takes the whole row. */
+.writing > .writing-group { grid-column: 1 / -1; }
 .writing h3 { font-size: 1.05rem; margin: 0 0 0.25rem; }
 .writing h3 a { color: var(--ink); }
 .writing h3 a:hover { color: var(--accent); }
