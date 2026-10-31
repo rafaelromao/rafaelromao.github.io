@@ -480,7 +480,7 @@
       <p class="idx">05</p>
       <div>
         <h2 class="band-title">Open source</h2>
-        <p class="band-note">Built in my own time: tools for agentic engineering, and a long-running interest in keyboards, from the layout and the firmware down to the hardware.</p>
+        <p class="band-note">Built in my own time: tools for agentic engineering, and two keyboard projects that turned into interesting engineering problems. The rest of my keyboard work, firmware, layout, hardware and ZMK modules, is on my <a href="https://github.com/rafaelromao">GitHub profile</a>.</p>
       </div>
     </div>
 
@@ -508,20 +508,11 @@
       </figure>
     </div>
 
-    <div class="proj-pair">
-      <div class="proj-feature reveal">
-        <h3><a href="https://rafaelromao.github.io/layerbench/">LayerBench</a></h3>
-        <p class="tagline">A layout analyzer that types the way the keyboard does.</p>
-        <p>Layout analyzers score a grid of letters. A ZMK keymap is not a grid of letters: it has one-shot and momentary layers, layers armed by macros, adaptive and repeat keys, combos, sticky shift and caps word, and each of them changes which physical keys a word actually costs. LayerBench simulates how a corpus is typed on the real keymap, then computes the usual metrics, same-finger bigrams, scissors, alternation, rolls, redirects and effort, on the resulting <strong>physical key stream</strong>.</p>
-        <p>Every rule is data: toggle it, re-parameterize it, or compose a new one. It runs entirely in the browser, with the engine in a Web Worker so a million-symbol analysis never blocks the page, and nothing leaves it unless you sign in with GitHub to keep your work in your own account.</p>
-      </div>
-
-      <div class="proj-feature reveal">
-        <h3><a href="https://rafaelromao.github.io/zmk-layer-hud/">zmk-layer-hud</a></h3>
-        <p class="tagline">Ask the keyboard, not the operating system.</p>
-        <p>An on-screen HUD that shows the layer you are on and lights the keys, combos and macros as you press them, drawn from the same keymap the firmware is built from. It is for learning a layout, and for recording or sharing a screen while you type on one.</p>
-        <p>Overlays like this usually infer the key from an OS event tap. This one does not infer anything: a small ZMK module reports the keyboard's own active layers and the position of every press, over Bluetooth or a serial interface of its own on USB, so the HUD shows what the firmware did rather than what the host saw. It runs as a native overlay panel on macOS and a layer-shell panel on Hyprland, and redraws live when the keymap changes.</p>
-      </div>
+    <div class="proj-feature reveal">
+      <h3><a href="https://rafaelromao.github.io/layerbench/">LayerBench</a></h3>
+      <p class="tagline">A layout analyzer that types the way the keyboard does.</p>
+      <p>Layout analyzers score a grid of letters. A ZMK keymap is not a grid of letters: it has one-shot and momentary layers, layers armed by macros, adaptive and repeat keys, combos, sticky shift and caps word, and each of them changes which physical keys a word actually costs. LayerBench simulates how a corpus is typed on the real keymap, then computes the usual metrics, same-finger bigrams, scissors, alternation, rolls, redirects and effort, on the resulting <strong>physical key stream</strong>.</p>
+      <p>Every rule is data: toggle it, re-parameterize it, or compose a new one. It runs entirely in the browser, with the engine in a Web Worker so a million-symbol analysis never blocks the page, and nothing leaves it unless you sign in with GitHub to keep your work in your own account.</p>
     </div>
 
     <div class="proj-feature reveal">
@@ -601,49 +592,6 @@
 
       <p>The part I find more interesting than the trick is what it takes to make it survive real typing. The keyboard keeps its own local inference and the host only corrects it, which means a host message always describes the editor as of an earlier keystroke. Two rules reconcile them: a <strong>60 ms hold-off</strong> before believing a zero, because the kernel zeroes the whole byte whenever it sends its own lamp update, and a <strong>150 ms guard</strong> after any keyboard-driven change, so a stale in-flight message cannot undo a correct local one. The keyboard wins in motion, the host wins at rest.</p>
     </div>
-
-    <ul class="projects">
-      <li class="reveal">
-        <h4 class="proj-name">Keyboards</h4>
-        <p class="proj-meta">Firmware, layout, hardware</p>
-        <ul class="proj-sub">
-          <li>
-            <h5 class="proj-sub-name"><a href="https://rafaelromao.github.io/keyboards/">Firmware</a></h5>
-            <p>My keyboards repo contains my split keyboard configuration in ZMK, tuned for Portuguese, English, numbers and programming with Vim. It builds from a containerized toolchain and git submodules rather than hosted CI, so a firmware build is reproducible on any machine and offline.</p>
-          </li>
-          <li>
-            <h5 class="proj-sub-name"><a href="https://rafaelromao.github.io/romak/">Layout</a></h5>
-            <p>Romak is my own keyboard layout, for people who write both Portuguese and English, optimizing for hand alternation and against same-finger bigrams, pinky load and centre-column reaches. Published with the comparative analyses against a dozen existing layouts that justify each decision.</p>
-          </li>
-          <li>
-            <h5 class="proj-sub-name"><a href="https://rafaelromao.github.io/diamond/">Hardware</a></h5>
-            <p>Diamond is my own keyboard: a 24-key handwired split in a 1333+2 layout, designed around hiding its own hardware. The controller, reset button and power switch mount upside down inside the base, under a cover that the column and row wiring passes through. Published as printable STLs in three builds, MX, wired and Choc, drawing on the Rommana and the Dactyl Cygnus switch holders.</p>
-          </li>
-        </ul>
-      </li>
-      <li class="reveal">
-        <h4 class="proj-name">ZMK behaviours</h4>
-        <p class="proj-meta">C, devicetree &middot; ZMK modules</p>
-        <ul class="proj-sub">
-          <li>
-            <h5 class="proj-sub-name"><a href="https://github.com/rafaelromao/zmk-layer-morph">zmk-layer-morph</a></h5>
-            <p>Morphs a keypress into a different binding when any of a named set of layers is active. It is what lets one keymap serve both macOS and Linux base layers without duplicating every key.</p>
-          </li>
-          <li>
-            <h5 class="proj-sub-name"><a href="https://github.com/rafaelromao/zmk-os-detection">zmk-os-detection</a></h5>
-            <p>Tells macOS from Linux by how the host reads the keyboard's own descriptors, over USB or BLE, and flips one layer to match. A host it cannot identify leaves the layer alone; it never guesses.</p>
-          </li>
-          <li>
-            <h5 class="proj-sub-name"><a href="https://github.com/rafaelromao/zmk-sentence-case">zmk-sentence-case</a></h5>
-            <p>A sentence-aware space: after a full stop, question or exclamation mark, the next letter comes out capitalized without reaching for Shift.</p>
-          </li>
-          <li>
-            <h5 class="proj-sub-name"><a href="https://github.com/rafaelromao/zmk-dongle-display">zmk-dongle-display</a> <span class="proj-fork">(fork)</span></h5>
-            <p>Adds peripheral status screens to the dongle display, so a half with an OLED can show the dongle's host connection and every half's battery.</p>
-          </li>
-        </ul>
-      </li>
-    </ul>
   </section>
 
   <!-- ============ 06 writing ============ -->

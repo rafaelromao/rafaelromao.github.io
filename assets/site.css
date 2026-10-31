@@ -263,7 +263,6 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .systems > li > .rail,
 .method > li > .rail,
 .writing > li > .rail,
-.projects > li,
 .tiles > li,
 .proj-lead, .proj-feature,
 .creds > div,
@@ -501,24 +500,6 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 .proj-figure .c { color: var(--ink-3); }
 .proj-figure .k { color: var(--accent-ink); }
 
-.projects {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; gap: 0.9rem;
-}
-@media (min-width: 44rem) {
-  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-.proj-name {
-  font-family: var(--font-ui); font-size: 1rem; font-weight: 600;
-  margin: 0 0 0.1rem; letter-spacing: 0;
-}
-.proj-name a { color: var(--ink); }
-.proj-name a:hover { color: var(--accent); }
-.proj-meta {
-  font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--ink-3); margin: 0 0 0.5rem;
-}
-.projects p { margin: 0; font-size: 0.95rem; color: var(--ink-2); }
 /* Grouped entries inside one card, each under its own name and divided by a rule. */
 .proj-sub { list-style: none; margin: 0.9rem 0 0; padding: 0; }
 .proj-sub > li { padding: 0.9rem 0; border-top: 1px solid var(--rule); }
@@ -529,7 +510,6 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 }
 .proj-sub-name a { color: var(--ink); }
 .proj-sub-name a:hover { color: var(--accent); }
-.proj-fork { font-family: var(--font-ui); font-size: 0.82rem; color: var(--ink-3); }
 
 /* ---------- writing ---------- */
 .writing { list-style: none; margin: 0; padding: 0; }
@@ -625,10 +605,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--content); margin: 0 auto; p
 
 /* ---------- featured project figure ---------- */
 .proj-feature { margin-bottom: 0.9rem; }
-/* Two short features side by side; the one with a diagram keeps the full width. */
-.proj-pair { display: grid; gap: 0.9rem; margin-bottom: 0.9rem; }
-.proj-pair > .proj-feature { margin-bottom: 0; }
-@media (min-width: 60rem) { .proj-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.proj-feature:last-child { margin-bottom: 0; }
 .proj-feature h3 { font-size: 1.5rem; margin: 0 0 0.15rem; }
 .proj-feature h3 a { color: var(--ink); }
 .proj-feature h3 a:hover { color: var(--accent); }
